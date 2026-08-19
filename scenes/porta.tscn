@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dkwx8wwk6xfar"]
+
+[ext_resource type="Script" uid="uid://1pcevj5qb4ic" path="res://scripts/porta.gd" id="1_hlcnn"]
+[ext_resource type="Texture2D" uid="uid://cbjhcytb10y5i" path="res://assets/porta_spritesheet.png" id="2_rwxfp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m75hn"]
+radius = 59.413803
+
+[node name="Porta" type="Area2D" unique_id=1983765661]
+script = ExtResource("1_hlcnn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=198365860]
+texture = ExtResource("2_rwxfp")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186593168]
+rotation = -1.5707964
+shape = SubResource("CircleShape2D_m75hn")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

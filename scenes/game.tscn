@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://drsjgtynpu1es"]
+
+[ext_resource type="PackedScene" uid="uid://xsymq41wpo55" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://scenes/porta.tscn" id="2_lnu2h"]
+
+[node name="Game" type="Node2D" unique_id=1727282407]
+y_sort_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1689779949]
+zoom = Vector2(2, 2)
+
+[node name="Player" parent="." unique_id=805189541 instance=ExtResource("1_yqjtg")]
+
+[node name="Porta" parent="." unique_id=1983765661 instance=ExtResource("2_lnu2h")]
+position = Vector2(-85, 0)
