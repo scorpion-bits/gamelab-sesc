@@ -1,0 +1,8 @@
+extends Node
+
+# player events
+signal player_health_changed(max_health : int, current_health : int)
+
+# dialogue events
+signal dialogue_started
+signal dialogue_finished

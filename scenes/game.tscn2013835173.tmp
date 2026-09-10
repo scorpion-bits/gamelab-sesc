@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://xsymq41wpo55" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://scenes/porta.tscn" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://ry1olpv0usqi" path="res://musaranho.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cgg2a2k00vmvr" path="res://assets/dialogue_ui.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=1727282407]
@@ -13,9 +12,6 @@ zoom = Vector2(2, 2)
 
 [node name="Player" parent="." unique_id=805189541 instance=ExtResource("1_yqjtg")]
 
-[node name="Musaranho" parent="." unique_id=1276322933 instance=ExtResource("3_lbhrr")]
-position = Vector2(75, -4)
-
 [node name="Porta" parent="." unique_id=1983765661 instance=ExtResource("2_lnu2h")]
 position = Vector2(-85, 0)
 caminho = "res://scenes/sala_2.tscn"
@@ -23,7 +19,3 @@ caminho = "res://scenes/sala_2.tscn"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337035743]
 
 [node name="DialogueUI" parent="CanvasLayer" unique_id=255422638 instance=ExtResource("3_lnu2h")]
-visible = false
-
-[editable path="Musaranho"]
-[editable path="Musaranho/ComponenteInteracao"]

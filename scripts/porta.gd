@@ -1,13 +1,10 @@
-extends Area2D
+extends StaticBody2D
 
-func abrir_porta():
-	pass
+@onready var componente_interacao: Area2D = $ComponenteInteracao
+@export var caminho : String
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		print("Olá player!  seja bem vindo :0")
+func _ready():
+	componente_interacao.interacao = acao_da_porta
 
-
-func _on_body_exited(body: Node2D) -> void:
-	if body is Player:
-		print("Tchau adeus corpo!  nunca mais nos veremos :0")
+func acao_da_porta():
+	Transicionador.transicionar(caminho)

@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://lhx7yghjm3ok"]
+
+[ext_resource type="Script" uid="uid://c24ahq71q4ep7" path="res://scenes/menu_inicial.gd" id="1_1lqws"]
+[ext_resource type="Texture2D" uid="uid://ideycwgh86i8" path="res://assets/botoes.png" id="1_40mju"]
+[ext_resource type="PackedScene" uid="uid://c83guxtc5fmsu" path="res://scenes/game_ui.tscn" id="3_eg8ak"]
+[ext_resource type="AudioStream" uid="uid://cw4j3snse2t2m" path="res://assets/Menu.mp3" id="4_nn1uv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m75hn"]
+atlas = ExtResource("1_40mju")
+region = Rect2(3, 4, 42, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xlb3"]
+atlas = ExtResource("1_40mju")
+region = Rect2(51, 4, 42, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o35cm"]
+atlas = ExtResource("1_40mju")
+region = Rect2(3, 36, 42, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qgh4"]
+atlas = ExtResource("1_40mju")
+region = Rect2(51, 36, 42, 24)
+
+[node name="MenuInicial" type="Control" unique_id=362037276]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1lqws")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2027979161]
+layout_mode = 0
+offset_right = 644.0
+offset_bottom = 361.0
+color = Color(0.15294118, 0.3137255, 1, 1)
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=207143172]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 152.0
+offset_right = 359.0
+offset_bottom = 176.0
+columns = 3
+
+[node name="Play" type="TextureButton" parent="GridContainer" unique_id=499725255]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_m75hn")
+texture_pressed = SubResource("AtlasTexture_3xlb3")
+texture_hover = SubResource("AtlasTexture_o35cm")
+texture_disabled = SubResource("AtlasTexture_7qgh4")
+
+[node name="Label" type="Label" parent="GridContainer/Play" unique_id=912603551]
+layout_mode = 0
+offset_left = 6.9999995
+offset_top = 1.9999998
+offset_right = 46.0
+offset_bottom = 25.0
+scale = Vector2(0.7, 0.7)
+text = "PLAY"
+
+[node name="Load" type="TextureButton" parent="GridContainer" unique_id=1209392684]
+layout_mode = 2
+disabled = true
+texture_normal = SubResource("AtlasTexture_m75hn")
+texture_pressed = SubResource("AtlasTexture_3xlb3")
+texture_hover = SubResource("AtlasTexture_o35cm")
+texture_disabled = SubResource("AtlasTexture_7qgh4")
+
+[node name="Label" type="Label" parent="GridContainer/Load" unique_id=1102144325]
+layout_mode = 0
+offset_left = -2.9999995
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 48.0
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(28, 11)
+text = "LOAD
+"
+
+[node name="Quit" type="TextureButton" parent="GridContainer" unique_id=1866432558]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_m75hn")
+texture_pressed = SubResource("AtlasTexture_3xlb3")
+texture_hover = SubResource("AtlasTexture_o35cm")
+texture_disabled = SubResource("AtlasTexture_7qgh4")
+
+[node name="Label" type="Label" parent="GridContainer/Quit" unique_id=959161875]
+layout_mode = 0
+offset_left = 6.9999995
+offset_top = 1.9999999
+offset_right = 47.0
+offset_bottom = 25.0
+scale = Vector2(0.7, 0.7)
+text = "QUIT"
+
+[node name="GameUi" parent="." unique_id=1834502047 instance=ExtResource("3_eg8ak")]
+
+[node name="MusicaMenu" type="AudioStreamPlayer2D" parent="." unique_id=1863799005]
+position = Vector2(271, 152)
+stream = ExtResource("4_nn1uv")
+autoplay = true
+
+[connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GridContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
