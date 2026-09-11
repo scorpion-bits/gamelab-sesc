@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://lhx7yghjm3ok"]
 
 [ext_resource type="Script" uid="uid://c24ahq71q4ep7" path="res://scenes/menu_inicial.gd" id="1_1lqws"]
-[ext_resource type="Texture2D" uid="uid://ideycwgh86i8" path="res://assets/botoes.png" id="1_40mju"]
+[ext_resource type="Texture2D" uid="uid://ideycwgh86i8" path="res://assets/uis/botoes.png" id="1_40mju"]
 [ext_resource type="PackedScene" uid="uid://c83guxtc5fmsu" path="res://scenes/game_ui.tscn" id="3_eg8ak"]
-[ext_resource type="AudioStream" uid="uid://cw4j3snse2t2m" path="res://assets/Menu.mp3" id="4_nn1uv"]
+[ext_resource type="AudioStream" uid="uid://cw4j3snse2t2m" path="res://assets/audio/Menu.mp3" id="4_nn1uv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m75hn"]
 atlas = ExtResource("1_40mju")

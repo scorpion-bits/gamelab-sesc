@@ -2,18 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://xsymq41wpo55" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://scenes/porta.tscn" id="2_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://ry1olpv0usqi" path="res://musaranho.tscn" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://cgg2a2k00vmvr" path="res://assets/dialogue_ui.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://bmf2rhk3tht7l" path="res://box.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://ry1olpv0usqi" path="res://scenes/musaranho.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cgg2a2k00vmvr" path="res://scenes/dialogue_ui.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bmf2rhk3tht7l" path="res://scenes/box.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://5wrysthi66m8" path="res://scenes/espinho.tscn" id="6_p57ef"]
 
 [node name="Game" type="Node2D" unique_id=1727282407]
 y_sort_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1689779949]
-zoom = Vector2(2, 2)
-
 [node name="Player" parent="." unique_id=805189541 instance=ExtResource("1_yqjtg")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1689779949]
+zoom = Vector2(2, 2)
 
 [node name="Musaranho" parent="." unique_id=1276322933 instance=ExtResource("3_lbhrr")]
 position = Vector2(155, -84)
@@ -42,5 +42,7 @@ knockback_force = 700.0
 
 [editable path="Musaranho"]
 [editable path="Musaranho/ComponenteInteracao"]
+[editable path="Porta"]
+[editable path="Porta/ComponenteInteracao"]
 [editable path="Espinho"]
 [editable path="Espinho/HitboxComponent"]

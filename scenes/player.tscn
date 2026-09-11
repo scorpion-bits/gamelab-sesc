@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://xsymq41wpo55"]
 
 [ext_resource type="Script" uid="uid://c11377ls44vqm" path="res://scripts/player.gd" id="1_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://kw50cywud2nd" path="res://assets/player.png" id="2_tuyoq"]
-[ext_resource type="Script" uid="uid://dtkpaqnik704t" path="res://scripts/movement_component.gd" id="3_qlg0r"]
-[ext_resource type="Script" uid="uid://dhm1dikbpo0r8" path="res://scripts/input_component.gd" id="4_qlg0r"]
-[ext_resource type="Script" uid="uid://bmp1mdyuph7qy" path="res://scripts/visual_component.gd" id="5_qlg0r"]
-[ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://scenes/hurtbox_component.tscn" id="6_tuyoq"]
-[ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://scenes/health_component.tscn" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://kw50cywud2nd" path="res://assets/player/player.png" id="2_tuyoq"]
+[ext_resource type="Script" uid="uid://dtkpaqnik704t" path="res://scripts/componentes/movement_component.gd" id="3_qlg0r"]
+[ext_resource type="Script" uid="uid://dhm1dikbpo0r8" path="res://scripts/componentes/input_component.gd" id="4_qlg0r"]
+[ext_resource type="Script" uid="uid://bmp1mdyuph7qy" path="res://scripts/componentes/visual_component.gd" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://scenes/componentes/hurtbox_component.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://scenes/componentes/health_component.tscn" id="7_fjrip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m75hn"]
 size = Vector2(10, 4)

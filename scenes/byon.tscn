@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bp7uneyjfcgcd"]
+
+[ext_resource type="Script" uid="uid://b4gf5tilnnr5a" path="res://scenes/byon.gd" id="1_gqdnu"]
+[ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://scripts/componentes/dialogue_component.gd" id="1_mlhxy"]
+[ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://scripts/dialogue_data.gd" id="2_gtbbo"]
+[ext_resource type="Texture2D" uid="uid://t28qtfeaat6l" path="res://assets/NPCs/byson npc.png" id="3_0hj3r"]
+[ext_resource type="Texture2D" uid="uid://cwohglw7xoaeo" path="res://assets/portraits/portrait.png" id="3_gqdnu"]
+[ext_resource type="PackedScene" uid="uid://eykpvj30i662" path="res://scenes/componentes/componente_interacao.tscn" id="4_gqdnu"]
+
+[sub_resource type="Resource" id="Resource_aa4y8"]
+script = ExtResource("2_gtbbo")
+text = "Vou reiniciar as caixas!"
+duration = 1.0
+portrait = ExtResource("3_gqdnu")
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4pr2"]
+radius = 46.010868
+
+[node name="Byon" type="Node2D" unique_id=455871285]
+script = ExtResource("1_gqdnu")
+
+[node name="DialogueComponent" type="Node" parent="." unique_id=427745851]
+script = ExtResource("1_mlhxy")
+dialogues = Array[ExtResource("2_gtbbo")]([SubResource("Resource_aa4y8")])
+metadata/_custom_type_script = "uid://dcw3wkslql7lx"
+
+[node name="ComponenteInteracao" parent="." unique_id=454065674 instance=ExtResource("4_gqdnu")]
+
+[node name="Alerta" parent="ComponenteInteracao" index="0" unique_id=1885116126]
+position = Vector2(0, -39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteInteracao" unique_id=641700990]
+shape = SubResource("CircleShape2D_k4pr2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1510454726]
+texture = ExtResource("3_0hj3r")
+
+[editable path="ComponenteInteracao"]

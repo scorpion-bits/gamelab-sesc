@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gvwo5w81qd1c"]
 
-[ext_resource type="Texture2D" uid="uid://d5rje1m8jwjr" path="res://assets/spikeball.png" id="1_pret8"]
+[ext_resource type="Texture2D" uid="uid://d5rje1m8jwjr" path="res://assets/objetos/spikeball.png" id="1_pret8"]
 
 [node name="RigidBody2D" type="RigidBody2D" unique_id=1412556652]
 

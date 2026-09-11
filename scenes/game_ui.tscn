@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c83guxtc5fmsu"]
 
 [ext_resource type="Script" uid="uid://bypuo0cp06ert" path="res://scripts/game_ui.gd" id="1_rns2u"]
-[ext_resource type="Texture2D" uid="uid://ejvqrdhm6g2w" path="res://assets/cursor.png" id="2_u001w"]
+[ext_resource type="Texture2D" uid="uid://ejvqrdhm6g2w" path="res://assets/uis/cursor.png" id="2_u001w"]
 
 [node name="GameUi" type="CanvasLayer" unique_id=1834502047]
 

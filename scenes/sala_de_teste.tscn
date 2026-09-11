@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwrgdmyq3igqy"]
 
-[ext_resource type="Texture2D" uid="uid://byhwc32livom1" path="res://assets/bola.png" id="1_gv5om"]
+[ext_resource type="Texture2D" uid="uid://byhwc32livom1" path="res://assets/objetos/bola.png" id="1_gv5om"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m75hn"]
 bounce = 0.66
