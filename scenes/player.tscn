@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dtkpaqnik704t" path="res://scripts/movement_component.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://dhm1dikbpo0r8" path="res://scripts/input_component.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://bmp1mdyuph7qy" path="res://scripts/visual_component.gd" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://scenes/hurtbox_component.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://scenes/health_component.tscn" id="7_fjrip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m75hn"]
 size = Vector2(10, 4)
@@ -185,7 +187,12 @@ _data = {
 &"running_up": SubResource("Animation_n7ghd")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=805189541]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
+radius = 4.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D" unique_id=805189541 groups=["Player"]]
+motion_mode = 1
 script = ExtResource("1_qlg0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=391679255]
@@ -216,3 +223,17 @@ script = ExtResource("5_qlg0r")
 animation = NodePath("../AnimationPlayer")
 input_component = NodePath("../InputComponent")
 body = NodePath("..")
+
+[node name="HurtboxComponent" parent="." unique_id=26651227 instance=ExtResource("6_tuyoq")]
+collision_layer = 16
+collision_mask = 64
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=233471483]
+position = Vector2(0, 14)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fjrip")
+debug_color = Color(6.4495207e-06, 0.6468422, 0.23469484, 0.41960785)
+
+[node name="HealthComponent" parent="." unique_id=454567807 instance=ExtResource("7_fjrip")]
+
+[editable path="HurtboxComponent"]

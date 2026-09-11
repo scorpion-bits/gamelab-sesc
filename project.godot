@@ -39,6 +39,10 @@ folder_colors={
 "res://scripts/": "blue"
 }
 
+[global_group]
+
+Player=""
+
 [input]
 
 W={
@@ -73,6 +77,10 @@ interagir={
 2d_physics/layer_2="OBJETOS"
 2d_physics/layer_3="INIMIGOS"
 2d_physics/layer_4="BALAS"
+2d_physics/layer_5="PlayerHurtbox"
+2d_physics/layer_6="PlayerHitbox"
+2d_physics/layer_7="EnemyHitbox"
+2d_physics/layer_8="EnemyHurtbox"
 
 [physics]
 

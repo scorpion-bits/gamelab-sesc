@@ -37,8 +37,7 @@ position = Vector2(103, 0)
 position = Vector2(9, -57)
 
 [node name="HitboxComponent" parent="Espinho" index="2" unique_id=734075556]
-damage = 50
-knockback_force = 700.0
+knockback_force = 5.0
 
 [editable path="Musaranho"]
 [editable path="Musaranho/ComponenteInteracao"]

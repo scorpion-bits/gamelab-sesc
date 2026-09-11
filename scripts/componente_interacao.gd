@@ -1,4 +1,5 @@
 extends Area2D
+class_name InteractionComponent
 
 @onready var alerta: Sprite2D = $Alerta
 var esta_dentro : bool = false
