@@ -5,5 +5,8 @@
 
 [node name="DebugRoom2" unique_id=119610155 instance=ExtResource("1_6pp37")]
 
+[node name="SpawnPoint" parent="." index="0" unique_id=777194575]
+position = Vector2(189, 73)
+
 [node name="Musaranho" parent="." index="1" unique_id=1276322933 instance=ExtResource("2_ndg4c")]
-position = Vector2(158, 77)
+position = Vector2(118, 13)

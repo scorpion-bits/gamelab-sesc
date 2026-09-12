@@ -23,7 +23,7 @@ size = Vector2(31.9, 31.9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qgh4"]
 size = Vector2(31.9, 31.9)
 
-[node name="Box" type="CharacterBody2D" unique_id=228113920]
+[node name="Box" type="CharacterBody2D" unique_id=228113920 groups=["boxes"]]
 script = ExtResource("1_3n43a")
 
 [node name="BoxSprite" type="Sprite2D" parent="." unique_id=1882571333]

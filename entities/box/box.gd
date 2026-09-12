@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var shake_component: ShakeComponent = $ShakeComponent
 
 var player_area : String
+var original_global_position : Vector2
 
 @onready var area_left: Area2D = $AreaLeft
 @onready var area_top: Area2D = $AreaTop
@@ -18,6 +19,7 @@ var tween : Tween
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+	original_global_position = global_position
 	ic.interacao = push
 
 func push():
@@ -48,3 +50,10 @@ func push():
 func move(direction : Vector2):
 	tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property($".", "global_position", global_position + direction * 32, 0.5)
+	
+func reset_position():
+	if tween:
+		tween.kill()
+	
+	tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "global_position", original_global_position, 1.0)
