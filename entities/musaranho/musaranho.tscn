@@ -12,15 +12,9 @@ radius = 37.12142
 
 [sub_resource type="Resource" id="Resource_clh83"]
 script = ExtResource("5_b681t")
-text = "Deixei minha espada na outra sala e um mecanismo travou depois que sai..."
+text = "Vou resetar o quebra  cabeça para ti"
 duration = 1.0
 portrait = ExtResource("6_aa4y8")
-metadata/_custom_type_script = "uid://cqx633eegleoo"
-
-[sub_resource type="Resource" id="Resource_tg81s"]
-script = ExtResource("5_b681t")
-text = "Poderia me ajudar a resgatar? não sou muito bom com quebra-cabeças"
-duration = 1.0
 metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [node name="Musaranho" type="Node2D" unique_id=1276322933]
@@ -41,7 +35,7 @@ shape = SubResource("CircleShape2D_m75hn")
 
 [node name="DialogueComponent" type="Node" parent="." unique_id=1103493141]
 script = ExtResource("4_aojdi")
-dialogues = Array[ExtResource("5_b681t")]([SubResource("Resource_clh83"), SubResource("Resource_tg81s")])
+dialogues = Array[ExtResource("5_b681t")]([SubResource("Resource_clh83")])
 metadata/_custom_type_script = "uid://dcw3wkslql7lx"
 
 [editable path="ComponenteInteracao"]
