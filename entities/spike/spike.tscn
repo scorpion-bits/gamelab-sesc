@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://5wrysthi66m8"]
+
+[ext_resource type="Texture2D" uid="uid://d5rje1m8jwjr" path="res://entities/spike/spikeball.png" id="1_i4twe"]
+[ext_resource type="PackedScene" uid="uid://jn1h2vbgnjdt" path="res://components/hitbox_component/hitbox_component.tscn" id="2_akwu5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m75hn"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1fow"]
+radius = 27.018513
+
+[node name="Spike" type="StaticBody2D" unique_id=2065067088]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1001012554]
+texture = ExtResource("1_i4twe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=649456458]
+shape = SubResource("CircleShape2D_m75hn")
+debug_color = Color(0.983406, 0, 0.35765183, 0.41960785)
+
+[node name="HitboxComponent" parent="." unique_id=734075556 instance=ExtResource("2_akwu5")]
+collision_layer = 64
+collision_mask = 16
+damage = 30
+knockback_force = 800.0
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=710626053]
+shape = SubResource("CircleShape2D_a1fow")
+debug_color = Color(0.97, 0, 0.4526667, 0)
+
+[editable path="HitboxComponent"]

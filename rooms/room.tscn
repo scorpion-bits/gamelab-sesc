@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cta25gu0oqwqo"]
+
+[ext_resource type="Script" uid="uid://ka23mav4172f" path="res://rooms/room.gd" id="1_l8042"]
+
+[node name="Room" type="Node2D" unique_id=119610155 groups=["room"]]
+y_sort_enabled = true
+script = ExtResource("1_l8042")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=777194575]
