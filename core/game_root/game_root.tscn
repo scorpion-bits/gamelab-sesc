@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bd3xt2mys3fv5"]
+
+[ext_resource type="PackedScene" uid="uid://dkukp1nw67ous" path="res://rooms/debug_room/debug_room_1.tscn" id="1_kv6al"]
+[ext_resource type="PackedScene" uid="uid://xsymq41wpo55" path="res://entities/player/player.tscn" id="2_6m7vs"]
+[ext_resource type="PackedScene" uid="uid://cgg2a2k00vmvr" path="res://user_interface/dialogue_ui/dialogue_ui.tscn" id="3_0kuhf"]
+
+[node name="GameRoot" type="Node2D" unique_id=1074952045]
+
+[node name="RoomContainer" type="Node2D" parent="." unique_id=988122880 groups=["room_container"]]
+y_sort_enabled = true
+
+[node name="DebugRoom1" parent="RoomContainer" unique_id=119610155 instance=ExtResource("1_kv6al")]
+position = Vector2(-528, -107)
+
+[node name="Player" parent="RoomContainer" unique_id=805189541 instance=ExtResource("2_6m7vs")]
+position = Vector2(72, 63)
+
+[node name="Camera2D" type="Camera2D" parent="RoomContainer/Player" unique_id=33842453]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=1130781063]
+
+[node name="DialogueUI" parent="UserInterface" unique_id=255422638 instance=ExtResource("3_0kuhf")]
+visible = false
