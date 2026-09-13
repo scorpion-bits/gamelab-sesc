@@ -13,9 +13,7 @@ func set_material():
 	target.material = outline_material.duplicate()
 	
 func activate():
-	print("ativado")
 	target.material.set_shader_parameter("outline_width", 1.0)
 	
 func deactivate():
-	print("desativado")
 	target.material.set_shader_parameter("outline_width", 0.0)
