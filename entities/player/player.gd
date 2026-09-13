@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	movement_component.move(input_component.get_direction(), delta)
-	print(health_component.current_health)
 
 func _on_hit(source):
 	health_component.take_damage(source.damage)

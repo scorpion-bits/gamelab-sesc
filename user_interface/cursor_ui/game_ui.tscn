@@ -6,7 +6,6 @@
 [node name="GameUi" type="CanvasLayer" unique_id=1834502047]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=689375293]
-scale = Vector2(2, 2)
 texture = ExtResource("2_u001w")
 script = ExtResource("1_rns2u")
 metadata/_edit_use_anchors_ = true

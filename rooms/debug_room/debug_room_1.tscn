@@ -46,5 +46,7 @@ position = Vector2(817, 104)
 
 [editable path="Musaranho"]
 [editable path="Musaranho/ComponenteInteracao"]
+[editable path="Box4"]
+[editable path="Box4/InteractionComponent"]
 [editable path="Box5"]
 [editable path="Box5/InteractionComponent"]

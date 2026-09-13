@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cayyw4aprg1d" path="res://entities/musaranho/musaranho.gd" id="1_1o5rc"]
 [ext_resource type="Texture2D" uid="uid://cos0wkgsucuux" path="res://entities/musaranho/musaranho_spritesheet.png" id="1_2hfgt"]
-[ext_resource type="PackedScene" uid="uid://eykpvj30i662" path="res://components/interaction_component/componente_interacao.tscn" id="2_oih2t"]
+[ext_resource type="PackedScene" uid="uid://eykpvj30i662" path="res://components/interaction_component/interaction_component.tscn" id="2_oih2t"]
 [ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="4_aojdi"]
 [ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="5_b681t"]
 [ext_resource type="Texture2D" uid="uid://b0es2jed4w4ij" path="res://entities/musaranho/musaranho_portrait.png" id="6_aa4y8"]
@@ -25,7 +25,8 @@ texture = ExtResource("1_2hfgt")
 hframes = 9
 vframes = 4
 
-[node name="ComponenteInteracao" parent="." unique_id=454065674 instance=ExtResource("2_oih2t")]
+[node name="ComponenteInteracao" parent="." unique_id=454065674 node_paths=PackedStringArray("target") instance=ExtResource("2_oih2t")]
+target = NodePath("../Sprite2D")
 
 [node name="Alerta" parent="ComponenteInteracao" index="0" unique_id=1885116126]
 position = Vector2(1, -29)
