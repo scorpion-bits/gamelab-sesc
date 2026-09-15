@@ -8,10 +8,15 @@ class_name Player
 
 func _ready() -> void:
 	hurtbox_component.hit.connect(_on_hit)
+	health_component.health_changed.connect(_on_health_change)
+	##health_component.died.connect(_on_death)
 
 func _physics_process(delta: float) -> void:
 	movement_component.move(input_component.get_direction(), delta)
 	print(health_component.current_health)
+
+func _on_health_change(current : int, max : int):
+	EventSystem.player_health_change.emit(current, max)
 
 func _on_hit(source):
 	health_component.take_damage(source.damage)

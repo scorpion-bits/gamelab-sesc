@@ -42,9 +42,9 @@ damage = 50
 knockback_force = 700.0
 
 [node name="PlayerHealthUi" parent="." unique_id=952815985 instance=ExtResource("7_u5sy4")]
-offset_left = -117.0
+offset_left = -113.0
 offset_top = -40.0
-offset_right = -117.0
+offset_right = -113.0
 offset_bottom = -40.0
 
 [editable path="Musaranho"]
