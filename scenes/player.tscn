@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://bmp1mdyuph7qy" path="res://scripts/visual_component.gd" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://scenes/hurtbox_component.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://scenes/health_component.tscn" id="7_fjrip"]
+[ext_resource type="Texture2D" uid="uid://dgn6klwu3vyd4" path="res://espada.png" id="8_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://cdxshwjou0bh0" path="res://assets/slash.png" id="9_d2wvv"]
+[ext_resource type="PackedScene" uid="uid://jn1h2vbgnjdt" path="res://scenes/hitbox_component.tscn" id="10_3v2ag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m75hn"]
 size = Vector2(10, 4)
@@ -191,6 +194,91 @@ _data = {
 radius = 4.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_jej6c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EspadaSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.015929]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EspadaSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f1ej7"]
+resource_name = "new_animation"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EspadaSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [-3.015929, 2.0106192982974673]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EspadaSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.099999994, 0.16666667, 0.25713256),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oprun"]
+_data = {
+&"RESET": SubResource("Animation_jej6c"),
+&"new_animation": SubResource("Animation_f1ej7")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=805189541 groups=["Player"]]
 motion_mode = 1
 script = ExtResource("1_qlg0r")
@@ -235,5 +323,27 @@ shape = SubResource("CapsuleShape2D_fjrip")
 debug_color = Color(6.4495207e-06, 0.6468422, 0.23469484, 0.41960785)
 
 [node name="HealthComponent" parent="." unique_id=454567807 instance=ExtResource("7_fjrip")]
+
+[node name="PunhoEspada" type="Node2D" parent="." unique_id=719015373]
+
+[node name="EspadaSprite" type="Sprite2D" parent="PunhoEspada" unique_id=1353097236]
+rotation = -3.015929
+texture = ExtResource("8_y4r1p")
+offset = Vector2(25, 0)
+
+[node name="SlashSprite" type="Sprite2D" parent="PunhoEspada" unique_id=381388417]
+rotation = -0.008124407
+texture = ExtResource("9_d2wvv")
+hframes = 5
+
+[node name="AtaquePlayer" type="AnimationPlayer" parent="PunhoEspada" unique_id=2098640505]
+libraries/ = SubResource("AnimationLibrary_oprun")
+
+[node name="HitboxComponent" parent="PunhoEspada" unique_id=734075556 instance=ExtResource("10_3v2ag")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PunhoEspada/HitboxComponent" unique_id=1221512799]
+
+[node name="Recarga" type="Timer" parent="PunhoEspada" unique_id=1778869810]
+autostart = true
 
 [editable path="HurtboxComponent"]

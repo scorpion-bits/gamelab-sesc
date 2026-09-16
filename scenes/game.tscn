@@ -11,10 +11,10 @@
 [node name="Game" type="Node2D" unique_id=1727282407]
 y_sort_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1689779949]
-zoom = Vector2(2, 2)
-
 [node name="Player" parent="." unique_id=805189541 instance=ExtResource("1_yqjtg")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1689779949]
+zoom = Vector2(2, 2)
 
 [node name="Musaranho" parent="." unique_id=1276322933 instance=ExtResource("3_lbhrr")]
 position = Vector2(155, -84)
@@ -28,6 +28,12 @@ caminho = "res://scenes/sala_2.tscn"
 [node name="DialogueUI" parent="CanvasLayer" unique_id=255422638 instance=ExtResource("3_lnu2h")]
 visible = false
 
+[node name="PlayerHealthUi" parent="CanvasLayer" unique_id=952815985 instance=ExtResource("7_u5sy4")]
+offset_left = -437.0
+offset_top = -400.0
+offset_right = -437.0
+offset_bottom = -400.0
+
 [node name="Box" parent="." unique_id=228113920 instance=ExtResource("5_iywne")]
 position = Vector2(71, 0)
 
@@ -40,12 +46,6 @@ position = Vector2(9, -57)
 [node name="HitboxComponent" parent="Espinho" index="2" unique_id=734075556]
 damage = 50
 knockback_force = 700.0
-
-[node name="PlayerHealthUi" parent="." unique_id=952815985 instance=ExtResource("7_u5sy4")]
-offset_left = -117.0
-offset_top = -40.0
-offset_right = -117.0
-offset_bottom = -40.0
 
 [editable path="Musaranho"]
 [editable path="Musaranho/ComponenteInteracao"]
