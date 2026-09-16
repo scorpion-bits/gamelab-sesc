@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3xlg84t4o2mm" path="res://scenes/inimigo.tscn" id="3_fxqid"]
 
 [node name="Sala2" type="Node2D" unique_id=1040307728]
+z_index = 1
 
 [node name="Player" parent="." unique_id=805189541 instance=ExtResource("1_n5pud")]
 

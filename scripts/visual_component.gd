@@ -8,16 +8,24 @@ class_name VisualComponent
 @onready var ap: AnimationPlayer = $"../PunhoEspada/AtaquePlayer"
 @onready var recarga: Timer = $"../PunhoEspada/Recarga"
 
+# =========== novo
 var morto : bool = false 
 var last_direction : Vector2 = Vector2.ZERO
 
+# novo
+func _ready() -> void:
+	EventSystem.player_health_change.connect(_on_hit)
+	EventSystem.on_player_death.connect(_on_death)
+
+
 func _process(delta: float) -> void:
-	if animation != null and input_component != null and body != null:
-		if input_component.direction != Vector2.ZERO:
-			last_direction = input_component.direction
-			play("running")
-		else:
-			play("idle")
+	if not morto:
+		if animation != null and input_component != null and body != null and recarga.is_stopped():
+			if input_component.direction != Vector2.ZERO:
+				last_direction = input_component.direction
+				play("running")
+			else:
+				play("idle")
 
 func play(type : String):
 	var anim = type + "_"
@@ -33,6 +41,7 @@ func play(type : String):
 			anim += "up"
 	animation.play(anim)
 
+# =========== NOVO =========== 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("atacar") and not morto:
 		atacar()
@@ -55,3 +64,13 @@ func normalizar_direcao(dir : Vector2):
 			return Vector2.DOWN
 		else:
 			return Vector2.UP
+
+func _on_hit(current : int, max : int):
+	if morto:
+		return
+	recarga.start(0.3)
+	animation.play("hit")
+
+func _on_death():
+	morto = true
+	animation.play("death")
