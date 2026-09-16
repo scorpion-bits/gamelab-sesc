@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xsymq41wpo55" path="res://scenes/player.tscn" id="1_n5pud"]
 [ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://scenes/porta.tscn" id="2_fxqid"]
+[ext_resource type="PackedScene" uid="uid://c3xlg84t4o2mm" path="res://scenes/inimigo.tscn" id="3_fxqid"]
 
 [node name="Sala2" type="Node2D" unique_id=1040307728]
 
@@ -13,6 +14,9 @@ caminho = "res://scenes/game.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2084296798]
 zoom = Vector2(2, 2)
+
+[node name="Inimigo" parent="." unique_id=1080471709 instance=ExtResource("3_fxqid")]
+position = Vector2(-104, -28)
 
 [editable path="Porta"]
 [editable path="Porta/ComponenteInteracao"]

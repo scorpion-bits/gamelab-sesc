@@ -232,10 +232,59 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxComponent:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitboxComponent:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EspadaSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SlashSprite:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_f1ej7"]
 resource_name = "new_animation"
 length = 0.3
+step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -243,10 +292,10 @@ tracks/0/path = NodePath("EspadaSprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
+"times": PackedFloat32Array(0, 0.16666667),
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
-"values": [-3.015929, 2.0106192982974673]
+"values": [-3.015929, 1.710422666954443]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -267,10 +316,58 @@ tracks/2/path = NodePath("SlashSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.099999994, 0.16666667, 0.25713256),
+"times": PackedFloat32Array(0, 0.06734426, 0.1, 0.13333333, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitboxComponent:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitboxComponent:monitorable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EspadaSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SlashSprite:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2574894),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oprun"]
@@ -280,6 +377,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=805189541 groups=["Player"]]
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_qlg0r")
 
@@ -327,11 +425,14 @@ debug_color = Color(6.4495207e-06, 0.6468422, 0.23469484, 0.41960785)
 [node name="PunhoEspada" type="Node2D" parent="." unique_id=719015373]
 
 [node name="EspadaSprite" type="Sprite2D" parent="PunhoEspada" unique_id=1353097236]
+visible = false
+z_index = 1
 rotation = -3.015929
 texture = ExtResource("8_y4r1p")
-offset = Vector2(25, 0)
+offset = Vector2(32, 0)
 
 [node name="SlashSprite" type="Sprite2D" parent="PunhoEspada" unique_id=381388417]
+visible = false
 rotation = -0.008124407
 texture = ExtResource("9_d2wvv")
 hframes = 5
@@ -340,8 +441,11 @@ hframes = 5
 libraries/ = SubResource("AnimationLibrary_oprun")
 
 [node name="HitboxComponent" parent="PunhoEspada" unique_id=734075556 instance=ExtResource("10_3v2ag")]
+monitoring = false
+monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PunhoEspada/HitboxComponent" unique_id=1221512799]
+polygon = PackedVector2Array(-30, -10, -48, -3, -45, -25, -25, -45, 6, -52, 29, -46, 47, -25, 53, 1, 43, 30, 16, 51, -12, 52, -3, 18, 13, 13, 18, -3, 5, -19, -10, -18, -30, -10)
 
 [node name="Recarga" type="Timer" parent="PunhoEspada" unique_id=1778869810]
 autostart = true

@@ -4,7 +4,11 @@ class_name VisualComponent
 @export var animation : AnimationPlayer
 @export var input_component : InputComponent
 @export var body : CharacterBody2D
+@onready var punho: Node2D = $"../PunhoEspada"
+@onready var ap: AnimationPlayer = $"../PunhoEspada/AtaquePlayer"
+@onready var recarga: Timer = $"../PunhoEspada/Recarga"
 
+var morto : bool = false 
 var last_direction : Vector2 = Vector2.ZERO
 
 func _process(delta: float) -> void:
@@ -14,7 +18,7 @@ func _process(delta: float) -> void:
 			play("running")
 		else:
 			play("idle")
-			
+
 func play(type : String):
 	var anim = type + "_"
 	if abs(last_direction.x) >= abs(last_direction.y):
@@ -27,5 +31,27 @@ func play(type : String):
 			anim += "down"
 		else:
 			anim += "up"
-	
 	animation.play(anim)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("atacar") and not morto:
+		atacar()
+
+func atacar():
+	if punho != null and ap != null:
+		pass
+	var dir_normalizada = normalizar_direcao(last_direction)
+	punho.rotation = dir_normalizada.angle()
+	ap.play("new_animation")
+
+func normalizar_direcao(dir : Vector2):
+	if abs(dir.x) > abs(dir.y):
+		if dir.x >= 0:
+			return Vector2.RIGHT
+		else: 
+			return Vector2.LEFT
+	else:
+		if dir.y >= 0:
+			return Vector2.DOWN
+		else:
+			return Vector2.UP

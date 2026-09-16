@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c3xlg84t4o2mm"]
+
+[ext_resource type="Texture2D" uid="uid://db5nu24xxfra7" path="res://assets/mage.png" id="1_61lki"]
+[ext_resource type="Script" uid="uid://ci7m6puql8fx4" path="res://scripts/inimigo.gd" id="1_ui621"]
+[ext_resource type="Texture2D" uid="uid://l6ul7mhhwiu4" path="res://assets/staff.png" id="2_4er16"]
+[ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://scenes/hurtbox_component.tscn" id="2_21tsg"]
+[ext_resource type="PackedScene" uid="uid://c52b8psn0v324" path="res://scenes/bala.tscn" id="2_adsyq"]
+[ext_resource type="Script" uid="uid://bydogdnh7pvnv" path="res://scripts/bracos.gd" id="3_adsyq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4pr2"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_jc2kt"]
+resource_name = "hit"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4v6kx"]
+_data = {
+&"hit": SubResource("Animation_jc2kt")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3nqnr"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4pr2"]
+radius = 113.07078
+
+[sub_resource type="Animation" id="Animation_rmr57"]
+resource_name = "shoot"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0dgd2"]
+_data = {
+&"shoot": SubResource("Animation_rmr57")
+}
+
+[node name="Inimigo" type="StaticBody2D" unique_id=1080471709]
+script = ExtResource("1_ui621")
+bala_scene = ExtResource("2_adsyq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803601828]
+position = Vector2(0, 3)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_k4pr2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=85417425]
+position = Vector2(0, 7)
+texture = ExtResource("1_61lki")
+offset = Vector2(0, -16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2029647787]
+libraries/ = SubResource("AnimationLibrary_4v6kx")
+
+[node name="HurtboxComponent" parent="." unique_id=26651227 instance=ExtResource("2_21tsg")]
+position = Vector2(0, -7)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1687941741]
+position = Vector2(0, 7)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_3nqnr")
+debug_color = Color(0, 2.4156804, 0.429452, 0)
+
+[node name="Deteccao" type="Area2D" parent="." unique_id=842026666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deteccao" unique_id=618176169]
+shape = SubResource("CircleShape2D_k4pr2")
+debug_color = Color(9.101648, 0, 1.002315, 0)
+
+[node name="Bracos" type="Node2D" parent="." unique_id=1723028858]
+position = Vector2(1, -4)
+script = ExtResource("3_adsyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bracos" unique_id=1428905]
+texture = ExtResource("2_4er16")
+offset = Vector2(10, 0)
+
+[node name="Marker2D" type="Marker2D" parent="Bracos" unique_id=62053021]
+position = Vector2(22, 0.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bracos" unique_id=1425254204]
+libraries/ = SubResource("AnimationLibrary_0dgd2")
+
+[node name="Recarga" type="Timer" parent="." unique_id=595845414]
+
+[connection signal="body_entered" from="Deteccao" to="Bracos" method="_on_deteccao_body_entered"]
+[connection signal="body_exited" from="Deteccao" to="Bracos" method="_on_deteccao_body_exited"]
