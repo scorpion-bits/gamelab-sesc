@@ -382,13 +382,14 @@ motion_mode = 1
 script = ExtResource("1_qlg0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=391679255]
+position = Vector2(0, -10)
 texture = ExtResource("2_tuyoq")
 hframes = 9
 vframes = 4
 frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=712163623]
-position = Vector2(0, 14)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_m75hn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=622770290]
@@ -411,8 +412,9 @@ input_component = NodePath("../InputComponent")
 body = NodePath("..")
 
 [node name="HurtboxComponent" parent="." unique_id=26651227 instance=ExtResource("6_tuyoq")]
+position = Vector2(0, -10)
 collision_layer = 16
-collision_mask = 64
+collision_mask = 72
 
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=233471483]
 position = Vector2(0, 14)
@@ -423,6 +425,7 @@ debug_color = Color(6.4495207e-06, 0.6468422, 0.23469484, 0.41960785)
 [node name="HealthComponent" parent="." unique_id=454567807 instance=ExtResource("7_fjrip")]
 
 [node name="PunhoEspada" type="Node2D" parent="." unique_id=719015373]
+position = Vector2(0, -10)
 
 [node name="EspadaSprite" type="Sprite2D" parent="PunhoEspada" unique_id=1353097236]
 visible = false

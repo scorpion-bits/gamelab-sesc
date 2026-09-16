@@ -10,9 +10,12 @@ radius = 6.0
 height = 24.0
 
 [node name="Bala" unique_id=734075556 instance=ExtResource("1_uu6iy")]
+collision_layer = 8
+collision_mask = 16
 script = ExtResource("2_8mjn7")
 explosao = ExtResource("3_t0bj5")
 damage = 50
+knockback_force = 500.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=710626053]
 rotation = -1.5707964

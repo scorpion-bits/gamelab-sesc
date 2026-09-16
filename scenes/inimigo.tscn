@@ -61,6 +61,7 @@ shape = SubResource("CapsuleShape2D_3nqnr")
 debug_color = Color(0, 2.4156804, 0.429452, 0)
 
 [node name="Deteccao" type="Area2D" parent="." unique_id=842026666]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deteccao" unique_id=618176169]
 shape = SubResource("CircleShape2D_k4pr2")
@@ -72,7 +73,7 @@ script = ExtResource("3_adsyq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bracos" unique_id=1428905]
 texture = ExtResource("2_4er16")
-offset = Vector2(10, 0)
+offset = Vector2(10, -0.5)
 
 [node name="Marker2D" type="Marker2D" parent="Bracos" unique_id=62053021]
 position = Vector2(22, 0.5)
@@ -81,6 +82,8 @@ position = Vector2(22, 0.5)
 libraries/ = SubResource("AnimationLibrary_0dgd2")
 
 [node name="Recarga" type="Timer" parent="." unique_id=595845414]
+autostart = true
 
 [connection signal="body_entered" from="Deteccao" to="Bracos" method="_on_deteccao_body_entered"]
 [connection signal="body_exited" from="Deteccao" to="Bracos" method="_on_deteccao_body_exited"]
+[connection signal="timeout" from="Recarga" to="." method="_on_recarga_timeout"]
