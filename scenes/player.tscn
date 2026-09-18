@@ -267,7 +267,7 @@ tracks/0/path = NodePath("EspadaSprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
+"times": PackedFloat32Array(0.022, 0.16666667),
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
 "values": [-3.015929, 1.6877333866785165]
@@ -291,7 +291,7 @@ tracks/2/path = NodePath("SlashSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.099999994, 0.16666667, 0.2),
+"times": PackedFloat32Array(0.022, 0.06666667, 0.099999994, 0.16666667, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
@@ -303,10 +303,10 @@ tracks/3/path = NodePath("EspadaSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.22865719, 2495),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.022, 0.20990488, 2495),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false]
+"values": [false, true, false, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -315,10 +315,10 @@ tracks/4/path = NodePath("SlashSprite:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.22865719),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.22321297),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oprun"]
@@ -389,7 +389,8 @@ libraries/ = SubResource("AnimationLibrary_oprun")
 
 [node name="HitboxComponent" parent="PunhoEspada" unique_id=734075556 instance=ExtResource("10_3v2ag")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PunhoEspada/HitboxComponent" unique_id=1221512799]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PunhoEspada/HitboxComponent" unique_id=311125922]
+polygon = PackedVector2Array(-46, -7, -29, -44, 9, -50, 41, -30, 49, 11, 30, 39, -6, 52, -3, 19, 14, 10, 17, -6, 3, -18)
 
 [node name="Recarga" type="Timer" parent="PunhoEspada" unique_id=1778869810]
 autostart = true
