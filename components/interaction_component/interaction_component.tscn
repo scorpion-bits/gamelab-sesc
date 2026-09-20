@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://eykpvj30i662"]
+
+[ext_resource type="Script" uid="uid://cpuldr6pv0brc" path="res://components/interaction_component/interaction_component.gd" id="1_6pldb"]
+[ext_resource type="PackedScene" uid="uid://exgg7d8n63el" path="res://components/outline_component/outline_component.tscn" id="3_or7fi"]
+
+[node name="ComponenteInteracao" type="Area2D" unique_id=454065674]
+script = ExtResource("1_6pldb")
+
+[node name="OutlineComponent" parent="." unique_id=1035032867 instance=ExtResource("3_or7fi")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

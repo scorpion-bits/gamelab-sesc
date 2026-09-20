@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://daakqaaqkc7ff"]
+
+[ext_resource type="PackedScene" uid="uid://cta25gu0oqwqo" path="res://rooms/room.tscn" id="1_6pp37"]
+[ext_resource type="PackedScene" uid="uid://bmf2rhk3tht7l" path="res://entities/box/box.tscn" id="2_mkqxk"]
+[ext_resource type="PackedScene" uid="uid://ry1olpv0usqi" path="res://entities/musaranho/musaranho.tscn" id="2_ndg4c"]
+
+[node name="DebugRoom2" unique_id=119610155 instance=ExtResource("1_6pp37")]
+
+[node name="SpawnPoint" parent="." index="0" unique_id=777194575]
+position = Vector2(189, 73)
+
+[node name="Musaranho" parent="." index="1" unique_id=1276322933 instance=ExtResource("2_ndg4c")]
+position = Vector2(118, 13)
+
+[node name="Box2" parent="." index="2" unique_id=1939389919 instance=ExtResource("2_mkqxk")]
+position = Vector2(289, 40)
+
+[node name="Box" parent="." index="3" unique_id=228113920 instance=ExtResource("2_mkqxk")]
+position = Vector2(289, 8)

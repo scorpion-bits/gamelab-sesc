@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dkukp1nw67ous"]
+
+[ext_resource type="PackedScene" uid="uid://cta25gu0oqwqo" path="res://rooms/room.tscn" id="1_evj53"]
+[ext_resource type="PackedScene" uid="uid://caourcvmfyn7y" path="res://rooms/debug_room/debug_room_1_tiles.tscn" id="2_y7ink"]
+[ext_resource type="PackedScene" uid="uid://bmf2rhk3tht7l" path="res://entities/box/box.tscn" id="3_nwhb5"]
+[ext_resource type="PackedScene" uid="uid://5wrysthi66m8" path="res://entities/spike/spike.tscn" id="4_1e485"]
+[ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://entities/door/door.tscn" id="5_thwhe"]
+[ext_resource type="PackedScene" uid="uid://ry1olpv0usqi" path="res://entities/musaranho/musaranho.tscn" id="6_tg81s"]
+
+[node name="Level" unique_id=119610155 instance=ExtResource("1_evj53")]
+
+[node name="LevelTile" parent="." index="0" unique_id=1619882929 instance=ExtResource("2_y7ink")]
+
+[node name="Box3" parent="." index="1" unique_id=228113920 instance=ExtResource("3_nwhb5")]
+position = Vector2(689, 200)
+
+[node name="SpawnPoint" parent="." index="2" unique_id=777194575]
+position = Vector2(575, 132)
+
+[node name="Espinho" parent="." index="3" unique_id=2065067088 instance=ExtResource("4_1e485")]
+position = Vector2(991, 250)
+
+[node name="Door" parent="." index="4" unique_id=1052326827 instance=ExtResource("5_thwhe")]
+position = Vector2(528, 265)
+
+[node name="Musaranho" parent="." index="5" unique_id=1276322933 instance=ExtResource("6_tg81s")]
+position = Vector2(657, 79)
+
+[node name="Box4" parent="." index="6" unique_id=1944353595 instance=ExtResource("3_nwhb5")]
+position = Vector2(689, 168)
+
+[node name="Box5" parent="." index="7" unique_id=1885533377 instance=ExtResource("3_nwhb5")]
+position = Vector2(689, 136)
+
+[node name="Box6" parent="." index="8" unique_id=183791594 instance=ExtResource("3_nwhb5")]
+position = Vector2(689, 104)
+
+[node name="Box7" parent="." index="9" unique_id=574193957 instance=ExtResource("3_nwhb5")]
+position = Vector2(753, 136)
+
+[node name="Box8" parent="." index="10" unique_id=641495480 instance=ExtResource("3_nwhb5")]
+position = Vector2(785, 168)
+
+[node name="Box9" parent="." index="11" unique_id=649344250 instance=ExtResource("3_nwhb5")]
+position = Vector2(817, 104)
+
+[editable path="Musaranho"]
+[editable path="Musaranho/ComponenteInteracao"]
+[editable path="Box4"]
+[editable path="Box4/InteractionComponent"]
+[editable path="Box5"]
+[editable path="Box5/InteractionComponent"]

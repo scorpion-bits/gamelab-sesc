@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dkwx8wwk6xfar"]
+
+[ext_resource type="Script" uid="uid://1pcevj5qb4ic" path="res://entities/door/door.gd" id="1_dsbe1"]
+[ext_resource type="Texture2D" uid="uid://doq7jdb5yxky1" path="res://assets/objetos/porta_cinza.png" id="3_6sqah"]
+[ext_resource type="PackedScene" uid="uid://eykpvj30i662" path="res://components/interaction_component/interaction_component.tscn" id="3_uq1c4"]
+[ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="4_6sqah"]
+[ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="5_uq1c4"]
+
+[sub_resource type="Animation" id="Animation_rwxfp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8gms0"]
+resource_name = "close"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_vqm4t"]
+resource_name = "open"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ede8e"]
+_data = {
+&"RESET": SubResource("Animation_rwxfp"),
+&"close": SubResource("Animation_8gms0"),
+&"open": SubResource("Animation_vqm4t")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m75hn"]
+radius = 7.0
+height = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xlb3"]
+radius = 57.00877
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rtv0"]
+atlas = ExtResource("3_6sqah")
+region = Rect2(15, 9, 50, 55)
+
+[sub_resource type="Resource" id="Resource_ymy75"]
+script = ExtResource("5_uq1c4")
+text = "A porta está [color=indianred]firmemente trancada[/color]."
+duration = 0.3
+portrait = SubResource("AtlasTexture_8rtv0")
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[node name="Door" type="StaticBody2D" unique_id=1052326827]
+script = ExtResource("1_dsbe1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=808391306]
+libraries/ = SubResource("AnimationLibrary_ede8e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=198365860]
+texture = ExtResource("3_6sqah")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186593168]
+position = Vector2(0, 16)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_m75hn")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="ComponenteInteracao" parent="." unique_id=454065674 node_paths=PackedStringArray("target") instance=ExtResource("3_uq1c4")]
+target = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteInteracao" unique_id=636598173]
+shape = SubResource("CircleShape2D_3xlb3")
+debug_color = Color(0, 0.60959697, 0.6541587, 0)
+
+[node name="LockedDialogue" type="Node" parent="." unique_id=1242953612]
+script = ExtResource("4_6sqah")
+dialogues = Array[ExtResource("5_uq1c4")]([SubResource("Resource_ymy75")])
+metadata/_custom_type_script = "uid://dcw3wkslql7lx"
+
+[connection signal="body_entered" from="ComponenteInteracao" to="." method="_on_componente_interacao_body_entered"]
+[connection signal="body_exited" from="ComponenteInteracao" to="." method="_on_componente_interacao_body_exited"]
+
+[editable path="ComponenteInteracao"]

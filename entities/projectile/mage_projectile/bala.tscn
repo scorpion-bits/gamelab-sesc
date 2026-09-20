@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c52b8psn0v324"]
+
+[ext_resource type="PackedScene" uid="uid://jn1h2vbgnjdt" path="res://components/hitbox_component/hitbox_component.tscn" id="1_uu6iy"]
+[ext_resource type="Script" uid="uid://prwmv3xva43r" path="res://entities/projectile/mage_projectile/bala.gd" id="2_v42jj"]
+[ext_resource type="PackedScene" uid="uid://6f4ywuek226f" path="res://entities/projectile/mage_projectile/explosao.tscn" id="3_t0bj5"]
+[ext_resource type="Texture2D" uid="uid://cks3jciubl7dw" path="res://entities/projectile/mage_projectile/bullet.png" id="4_x7v4n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uu6iy"]
+radius = 6.0
+height = 24.0
+
+[node name="Bala" unique_id=734075556 instance=ExtResource("1_uu6iy")]
+collision_layer = 64
+collision_mask = 16
+script = ExtResource("2_v42jj")
+explosao = ExtResource("3_t0bj5")
+damage = 2
+knockback_force = 500.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=710626053]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_uu6iy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=1896322045]
+texture = ExtResource("4_x7v4n")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
