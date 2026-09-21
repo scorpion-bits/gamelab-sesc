@@ -57,6 +57,7 @@ player=""
 room_container=""
 room=""
 boxes=""
+boss=""
 
 [input]
 

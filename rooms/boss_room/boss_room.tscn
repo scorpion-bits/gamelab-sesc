@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://n13milrm348e" path="res://assets/tiles/autorais/dungeon.png" id="2_wcc8s"]
 [ext_resource type="PackedScene" uid="uid://ds6mat4bdgj6t" path="res://entities/torch/torch.tscn" id="3_yr5eq"]
 [ext_resource type="Script" uid="uid://eg3nsulmdloh" path="res://rooms/boss_room/room_event.gd" id="4_k675t"]
+[ext_resource type="PackedScene" uid="uid://1a4egkoqv7qp" path="res://entities/enemy/king/king.tscn" id="5_eqk62"]
+[ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="6_u3x5j"]
+[ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="7_jt71r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcc8s"]
 texture = ExtResource("2_wcc8s")
@@ -76,7 +79,7 @@ sources/0 = SubResource("TileSetAtlasSource_yr5eq")
 background_mode = 3
 glow_enabled = true
 glow_intensity = 0.7
-glow_bloom = 0.05
+glow_bloom = 0.1
 glow_blend_mode = 0
 glow_hdr_scale = 0.0
 fog_density = 0.3196
@@ -84,17 +87,36 @@ fog_density = 0.3196
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4pr2"]
 size = Vector2(748, 379)
 
-[node name="Room" unique_id=119610155 instance=ExtResource("1_cl1dg")]
+[sub_resource type="Resource" id="Resource_u3x5j"]
+script = ExtResource("7_jt71r")
+text = "[shake rate=20 level=5][b]MORRER![/b][/shake]"
+duration = 2.0
+metadata/_custom_type_script = "uid://cqx633eegleoo"
 
-[node name="CutsceneTriggerTimer" type="Timer" parent="." index="0" unique_id=762323206]
-wait_time = 0.2
-one_shot = true
-autostart = true
+[sub_resource type="Resource" id="Resource_k4pr2"]
+script = ExtResource("7_jt71r")
+text = "..."
+duration = 0.5
+metadata/_custom_type_script = "uid://cqx633eegleoo"
 
-[node name="SpawnPoint" parent="." index="1" unique_id=777194575]
+[sub_resource type="Resource" id="Resource_ti20a"]
+script = ExtResource("7_jt71r")
+text = "[shake rate=20 level=5]Aurora...[/shake]"
+duration = 1.5
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[sub_resource type="Resource" id="Resource_bfv4j"]
+script = ExtResource("7_jt71r")
+text = "[shake rate=20 level=5]Prepare-se para..[/shake]"
+duration = 1.0
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[node name="BossRoom" unique_id=119610155 instance=ExtResource("1_cl1dg")]
+
+[node name="SpawnPoint" parent="." index="0" unique_id=777194575]
 position = Vector2(0, 232)
 
-[node name="tiles" type="Node2D" parent="." index="2" unique_id=906937748]
+[node name="tiles" type="Node2D" parent="." index="1" unique_id=906937748]
 z_index = -5
 
 [node name="Wall" type="TileMapLayer" parent="tiles" index="0" unique_id=1229766711]
@@ -105,27 +127,52 @@ tile_set = SubResource("TileSet_mx6ng")
 tile_map_data = PackedByteArray("AAD/////AAADAAAAAAD//wAAAAADAAAAAAAAAAAAAAADAAAAAAAAAP//AAADAAAAAAD///7/AAADAAAAAAAAAP7/AAADAAAAAAD//wEAAAADAAAAAAAAAAEAAAADAAAAAAD+//7/AAADAAAAAAD+////AAADAAAAAAD+/wAAAAADAAAAAAD+/wEAAAADAAAAAAABAP7/AAADAAAAAAABAP//AAADAAAAAAABAAAAAAADAAAAAAABAAEAAAADAAAAAAD+//3/AAADAAAAAAD///3/AAADAAAAAAAAAP3/AAADAAAAAAABAP3/AAADAAAAAAACAP7/AAADAAAAAAACAP//AAADAAAAAAACAAAAAAADAAAAAAACAAEAAAADAAAAAAD9//7/AAADAAAAAAD9////AAADAAAAAAD9/wAAAAADAAAAAAD9/wEAAAADAAAAAAD+/wIAAAADAAAAAAD//wIAAAADAAAAAAAAAAIAAAADAAAAAAABAAIAAAADAAAAAAD+//z/AAADAAAAAAD///z/AAADAAAAAAAAAPz/AAADAAAAAAABAPz/AAADAAAAAAABAAMAAAADAAAAAAAAAAMAAAADAAAAAAD//wMAAAADAAAAAAD+/wMAAAADAAAAAAD9//3/AAADAAAAAAACAP3/AAADAAAAAAD9/wIAAAADAAAAAAACAAIAAAADAAAAAAD///v/AAADAAAAAAAAAPv/AAADAAAAAAD+//v/AAADAAAAAAABAPv/AAADAAAAAAD//wQAAAADAAAAAAAAAAQAAAADAAAAAAABAAQAAAADAAAAAAD+/wQAAAADAAAAAAAAAPr/AAADAAAAAAAAAPn/AAADAAAAAAAAAPj/AAADAAAAAAD///j/AAADAAAAAAD///n/AAADAAAAAAD///r/AAADAAAAAAAAAAUAAAADAAAAAAAAAAYAAAADAAAAAAAAAAcAAAADAAAAAAD//wUAAAADAAAAAAD//wYAAAADAAAAAAD//wcAAAADAAAAAAD+/wcAAAADAAAAAAD+/wYAAAADAAAAAAD+/wUAAAADAAAAAAD9/wMAAAADAAAAAAD9/wUAAAADAAAAAAD9/wQAAAADAAAAAAD9/wYAAAADAAAAAAD9/wcAAAADAAAAAAACAAcAAAADAAAAAAABAAcAAAADAAAAAAABAAYAAAADAAAAAAACAAYAAAADAAAAAAACAAUAAAADAAAAAAABAAUAAAADAAAAAAACAAQAAAADAAAAAAACAAMAAAADAAAAAAD9//n/AAADAAAAAAD9//j/AAADAAAAAAD+//j/AAADAAAAAAABAPj/AAADAAAAAAACAPj/AAADAAAAAAACAPn/AAADAAAAAAACAPr/AAADAAAAAAACAPv/AAADAAAAAAACAPz/AAADAAAAAAABAPn/AAADAAAAAAABAPr/AAADAAAAAAD+//n/AAADAAAAAAD+//r/AAADAAAAAAD9//v/AAADAAAAAAD9//r/AAADAAAAAAD9//z/AAADAAAAAAADAP//AAADAAAAAAAEAP//AAADAAAAAAAFAP//AAADAAAAAAAGAP//AAADAAAAAAAHAP//AAADAAAAAAADAAAAAAADAAAAAAAEAAAAAAADAAAAAAAFAAAAAAADAAAAAAAGAAAAAAADAAAAAAAHAAAAAAADAAAAAAD8////AAADAAAAAAD7////AAADAAAAAAD6////AAADAAAAAAD5////AAADAAAAAAD4////AAADAAAAAAD4/wAAAAADAAAAAAD5/wAAAAADAAAAAAD6/wAAAAADAAAAAAD7/wAAAAADAAAAAAD8/wAAAAADAAAAAAD8//7/AAADAAAAAAD7//7/AAADAAAAAAD6//7/AAADAAAAAAD5//7/AAADAAAAAAD4//7/AAADAAAAAAD4//3/AAADAAAAAAD5//3/AAADAAAAAAD6//3/AAADAAAAAAD7//3/AAADAAAAAAD8//3/AAADAAAAAAD4/wEAAAADAAAAAAD5/wEAAAADAAAAAAD6/wEAAAADAAAAAAD7/wEAAAADAAAAAAD8/wEAAAADAAAAAAD4/wIAAAADAAAAAAD5/wIAAAADAAAAAAD6/wIAAAADAAAAAAD7/wIAAAADAAAAAAD8/wIAAAADAAAAAAADAAIAAAADAAAAAAAEAAIAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAHAAIAAAADAAAAAAAHAAEAAAADAAAAAAAGAAEAAAADAAAAAAAFAAEAAAADAAAAAAAEAAEAAAADAAAAAAADAAEAAAADAAAAAAADAP3/AAADAAAAAAAEAP3/AAADAAAAAAAFAP3/AAADAAAAAAAGAP3/AAADAAAAAAAHAP3/AAADAAAAAAAHAP7/AAADAAAAAAAGAP7/AAADAAAAAAAFAP7/AAADAAAAAAAEAP7/AAADAAAAAAADAP7/AAADAAAAAAD8//n/AAADAAAAAAD7//n/AAADAAAAAAD5//z/AAADAAAAAAD5//v/AAADAAAAAAADAPn/AAADAAAAAAAEAPn/AAADAAAAAAAGAPz/AAADAAAAAAAGAPv/AAADAAAAAAD5/wMAAAADAAAAAAD5/wQAAAADAAAAAAD8/wYAAAADAAAAAAD7/wYAAAADAAAAAAAGAAMAAAADAAAAAAAGAAQAAAADAAAAAAADAAUAAAADAAAAAAAEAAUAAAADAAAAAAD6//r/AAADAAAAAAAFAPr/AAADAAAAAAADAAYAAAADAAAAAAAEAAYAAAADAAAAAAAFAAUAAAADAAAAAAD6/wUAAAADAAAAAAD6/wMAAAADAAAAAAD6/wQAAAADAAAAAAD7/wQAAAADAAAAAAD7/wMAAAADAAAAAAD7/wUAAAADAAAAAAD8/wUAAAADAAAAAAD8/wQAAAADAAAAAAD8/wMAAAADAAAAAAADAAMAAAADAAAAAAAEAAQAAAADAAAAAAADAAQAAAADAAAAAAAEAAMAAAADAAAAAAAFAAMAAAADAAAAAAAFAAQAAAADAAAAAAD6//z/AAADAAAAAAD6//v/AAADAAAAAAD7//v/AAADAAAAAAD8//z/AAADAAAAAAD8//v/AAADAAAAAAD7//r/AAADAAAAAAD8//r/AAADAAAAAAD7//z/AAADAAAAAAADAPr/AAADAAAAAAAEAPr/AAADAAAAAAAEAPv/AAADAAAAAAAEAPz/AAADAAAAAAADAPz/AAADAAAAAAADAPv/AAADAAAAAAAFAPz/AAADAAAAAAAFAPv/AAADAAAAAAA=")
 tile_set = SubResource("TileSet_k4pr2")
 
-[node name="Torch" parent="." index="3" unique_id=1798555761 instance=ExtResource("3_yr5eq")]
+[node name="Torch" parent="." index="2" unique_id=1798555761 instance=ExtResource("3_yr5eq")]
 position = Vector2(0, -301)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4" unique_id=882803349]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="3" unique_id=882803349]
 environment = SubResource("Environment_k4pr2")
 
-[node name="Torch3" parent="." index="5" unique_id=1605210147 instance=ExtResource("3_yr5eq")]
+[node name="Torch3" parent="." index="4" unique_id=1605210147 instance=ExtResource("3_yr5eq")]
 position = Vector2(72, -301)
 
-[node name="Torch2" parent="." index="6" unique_id=921302844 instance=ExtResource("3_yr5eq")]
+[node name="Torch2" parent="." index="5" unique_id=921302844 instance=ExtResource("3_yr5eq")]
 position = Vector2(-76, -301)
 
-[node name="CutsceneTriggerArea" type="Area2D" parent="." index="7" unique_id=319350384]
+[node name="CutsceneTriggerArea" type="Area2D" parent="." index="6" unique_id=319350384]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneTriggerArea" index="0" unique_id=1696070514]
 position = Vector2(0, -88.5)
 shape = SubResource("RectangleShape2D_k4pr2")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
+[node name="King" parent="." index="7" unique_id=224371529 instance=ExtResource("5_eqk62")]
+position = Vector2(0, -170)
+
 [node name="RoomEvent" type="Node" parent="." index="8" unique_id=32601687]
 script = ExtResource("4_k675t")
 
-[connection signal="timeout" from="CutsceneTriggerTimer" to="RoomEvent" method="_on_cutscene_trigger_timer_timeout"]
+[node name="Dialogue2" type="Node" parent="." index="9" unique_id=683664234]
+script = ExtResource("6_u3x5j")
+dialogues = Array[ExtResource("7_jt71r")]([SubResource("Resource_u3x5j")])
+metadata/_custom_type_script = "uid://dcw3wkslql7lx"
+
+[node name="Dialogue1" type="Node" parent="." index="10" unique_id=1073345019]
+script = ExtResource("6_u3x5j")
+dialogues = Array[ExtResource("7_jt71r")]([SubResource("Resource_k4pr2"), SubResource("Resource_ti20a"), SubResource("Resource_bfv4j")])
+metadata/_custom_type_script = "uid://dcw3wkslql7lx"
+
+[node name="CutsceneTriggerTimer" type="Timer" parent="." index="11" unique_id=762323206]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[node name="DialogueStartTimer" type="Timer" parent="." index="12" unique_id=699436110]
+wait_time = 0.7
+one_shot = true
+
 [connection signal="body_entered" from="CutsceneTriggerArea" to="RoomEvent" method="_on_cutscene_trigger_area_body_entered"]
+[connection signal="dialogue_finished" from="Dialogue2" to="RoomEvent" method="_on_dialogue_2_dialogue_finished"]
+[connection signal="dialogue_finished" from="Dialogue1" to="RoomEvent" method="_on_dialogue_1_dialogue_finished"]
+[connection signal="timeout" from="CutsceneTriggerTimer" to="RoomEvent" method="_on_cutscene_trigger_timer_timeout"]
+[connection signal="timeout" from="DialogueStartTimer" to="RoomEvent" method="_on_dialogue_start_timer_timeout"]

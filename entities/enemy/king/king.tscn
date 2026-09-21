@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://1a4egkoqv7qp"]
+
+[ext_resource type="Texture2D" uid="uid://b6yjfr3s34wau" path="res://entities/enemy/king/king_normal.png" id="1_r4k0e"]
+
+[node name="King" type="CharacterBody2D" unique_id=224371529 groups=["boss"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=414763179]
+texture = ExtResource("1_r4k0e")
