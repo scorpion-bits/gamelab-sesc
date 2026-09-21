@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bd3xt2mys3fv5"]
 
-[ext_resource type="PackedScene" uid="uid://c5f48oqjlrwgo" path="res://rooms/boss_room/boss_room.tscn" id="2_0kuhf"]
+[ext_resource type="PackedScene" uid="uid://cro5vrjenoxx4" path="res://rooms/level_2/level_2.tscn" id="2_0kuhf"]
 [ext_resource type="PackedScene" uid="uid://xsymq41wpo55" path="res://entities/player/player.tscn" id="2_6m7vs"]
 [ext_resource type="PackedScene" uid="uid://cgg2a2k00vmvr" path="res://user_interface/dialogue_ui/dialogue_ui.tscn" id="3_0kuhf"]
 [ext_resource type="PackedScene" uid="uid://cg4pp4je64wwj" path="res://user_interface/player_health_ui/player_health_ui.tscn" id="4_6m7vs"]
@@ -13,7 +13,7 @@ y_sort_enabled = true
 [node name="Player" parent="RoomContainer" unique_id=805189541 instance=ExtResource("2_6m7vs")]
 position = Vector2(107, -62)
 
-[node name="BossRoom" parent="RoomContainer" unique_id=119610155 instance=ExtResource("2_0kuhf")]
+[node name="Level2" parent="RoomContainer" unique_id=119610155 instance=ExtResource("2_0kuhf")]
 
 [node name="UserInterface" type="CanvasLayer" parent="." unique_id=1130781063]
 
