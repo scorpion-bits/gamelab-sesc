@@ -129,6 +129,7 @@ layout_mode = 2
 
 [node name="MenuButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2131582873]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/MenuButtons" unique_id=380880145]
 layout_mode = 2
@@ -173,3 +174,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="GameUi" parent="." unique_id=1834502047 instance=ExtResource("3_hqg3b")]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -37,7 +37,7 @@ func unregister_area(area : InteractionComponent):
 	area_list.remove_at(achado)
 
 func distance_to_player(area : InteractionComponent) -> float:
-	var dist = area.global_position.distance_to(player.global_position)
+	var dist = area.global_position.distance_to(get_tree().get_first_node_in_group("player").global_position)
 	return dist
 	
 func _sort_by_distance(a : InteractionComponent, b : InteractionComponent) -> bool:
