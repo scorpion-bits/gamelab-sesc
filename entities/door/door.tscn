@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dkwx8wwk6xfar"]
 
 [ext_resource type="Script" uid="uid://1pcevj5qb4ic" path="res://entities/door/door.gd" id="1_dsbe1"]
+[ext_resource type="AudioStream" uid="uid://dlroyfp46etcv" path="res://assets/audio/sfx/close_door.mp3" id="2_kgyc3"]
 [ext_resource type="Texture2D" uid="uid://doq7jdb5yxky1" path="res://assets/objetos/porta_cinza.png" id="3_6sqah"]
+[ext_resource type="AudioStream" uid="uid://bnuuoan6me7dt" path="res://assets/audio/sfx/open_door.mp3" id="3_mjxdi"]
 [ext_resource type="PackedScene" uid="uid://eykpvj30i662" path="res://components/interaction_component/interaction_component.tscn" id="3_uq1c4"]
 [ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="4_6sqah"]
 [ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="5_uq1c4"]
@@ -23,7 +25,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_8gms0"]
 resource_name = "close"
-length = 0.5
+length = 0.5304758
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -37,6 +39,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [3, 2, 1, 0]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_kgyc3")
+}],
+"times": PackedFloat32Array(0.026759908)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_vqm4t"]
 resource_name = "open"
@@ -54,6 +71,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.02203757,
+"stream": ExtResource("3_mjxdi")
+}],
+"times": PackedFloat32Array(0.014166951)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ede8e"]
 _data = {
@@ -107,6 +139,9 @@ debug_color = Color(0, 0.60959697, 0.6541587, 0)
 script = ExtResource("4_6sqah")
 dialogues = Array[ExtResource("5_uq1c4")]([SubResource("Resource_ymy75")])
 metadata/_custom_type_script = "uid://dcw3wkslql7lx"
+
+[node name="door" type="AudioStreamPlayer2D" parent="." unique_id=282700401]
+bus = &"SFX"
 
 [connection signal="body_entered" from="ComponenteInteracao" to="." method="_on_componente_interacao_body_entered"]
 [connection signal="body_exited" from="ComponenteInteracao" to="." method="_on_componente_interacao_body_exited"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b33yb2a1mh1m1" path="res://entities/box/box.png" id="1_oq5cr"]
 [ext_resource type="PackedScene" uid="uid://eykpvj30i662" path="res://components/interaction_component/interaction_component.tscn" id="2_bqn3j"]
 [ext_resource type="Script" uid="uid://02jessfvuh52" path="res://components/shake_component/shake_component.gd" id="3_bqn3j"]
+[ext_resource type="AudioStream" uid="uid://byyq0dmtirge0" path="res://assets/audio/sfx/pushstone.mp3" id="5_4xi2l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m75hn"]
 radius = 34.0147
@@ -31,9 +32,6 @@ texture = ExtResource("1_oq5cr")
 
 [node name="InteractionComponent" parent="." unique_id=454065674 node_paths=PackedStringArray("target") instance=ExtResource("2_bqn3j")]
 target = NodePath("../BoxSprite")
-
-[node name="Alerta" parent="InteractionComponent" index="0" unique_id=1885116126]
-position = Vector2(0, -22)
 
 [node name="Area" type="CollisionShape2D" parent="InteractionComponent" unique_id=1668255475]
 position = Vector2(0, 9)
@@ -79,5 +77,8 @@ debug_color = Color(0, 0.6420417, 0.32957625, 0.41960785)
 position = Vector2(-32, 8)
 shape = SubResource("RectangleShape2D_7qgh4")
 debug_color = Color(0.17997974, 0.59188426, 0.6940173, 0.41960785)
+
+[node name="Arrastar" type="AudioStreamPlayer2D" parent="." unique_id=535575912]
+stream = ExtResource("5_4xi2l")
 
 [editable path="InteractionComponent"]

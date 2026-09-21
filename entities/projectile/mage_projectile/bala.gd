@@ -1,6 +1,6 @@
 extends HitboxComponent
 
-var RAPIDEZ = 500
+@export var RAPIDEZ = 500
 var direcao : Vector2 
 @export var explosao : PackedScene
 

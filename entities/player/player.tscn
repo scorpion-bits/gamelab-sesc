@@ -5,13 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://dmak8t3fu1d8t" path="res://entities/player/player_spritesheet-export.png" id="3_bectd"]
 [ext_resource type="Script" uid="uid://dtkpaqnik704t" path="res://components/movement_component/movement_component.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://dhm1dikbpo0r8" path="res://components/input_component/input_component.gd" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://d36qi3bpin0c0" path="res://assets/audio/sfx/step_grass.mp3" id="4_wvtmh"]
 [ext_resource type="Script" uid="uid://bmp1mdyuph7qy" path="res://components/visual_component/visual_component.gd" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://components/hurtbox_component/hurtbox_component.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://components/health_component/health_component.tscn" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://jn1h2vbgnjdt" path="res://components/hitbox_component/hitbox_component.tscn" id="9_bectd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m75hn"]
-size = Vector2(10, 4)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hngma"]
+radius = 3.9997807
+height = 13.999232
 
 [sub_resource type="Animation" id="Animation_26q78"]
 length = 0.001
@@ -429,6 +431,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("step")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.73336804,
+"start_offset": 0.30970863,
+"stream": ExtResource("4_wvtmh")
+}],
+"times": PackedFloat32Array(0.004000401)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_dw050"]
 resource_name = "running_left"
@@ -517,9 +534,9 @@ hframes = 127
 frame = 99
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=712163623]
-visible = false
 position = Vector2(0, 14)
-shape = SubResource("RectangleShape2D_m75hn")
+rotation = -1.5603243
+shape = SubResource("CapsuleShape2D_hngma")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=622770290]
 libraries/ = SubResource("AnimationLibrary_nvl01")
@@ -565,6 +582,8 @@ polygon = PackedVector2Array(-1, -2, -1, -23, 15, -34, 33.88111, -34.118473, 46,
 disabled = true
 
 [node name="Recarga" type="Timer" parent="." unique_id=1580170180]
+
+[node name="step" type="AudioStreamPlayer2D" parent="." unique_id=1014242256]
 
 [editable path="HurtboxComponent"]
 [editable path="HitboxComponent"]

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://lhx7yghjm3ok"]
 
 [ext_resource type="Script" uid="uid://c24ahq71q4ep7" path="res://core/main_menu/menu_inicial.gd" id="1_u58hp"]
+[ext_resource type="Texture2D" uid="uid://8jkuvico3wvr" path="res://core/main_menu/capa.png" id="2_hqg3b"]
 [ext_resource type="Texture2D" uid="uid://ideycwgh86i8" path="res://user_interface/button_ui/botoes.png" id="2_tg0hb"]
 [ext_resource type="PackedScene" uid="uid://c83guxtc5fmsu" path="res://user_interface/cursor_ui/game_ui.tscn" id="3_hqg3b"]
-[ext_resource type="AudioStream" uid="uid://cw4j3snse2t2m" path="res://assets/audio/Menu.mp3" id="4_26few"]
+[ext_resource type="AudioStream" uid="uid://kg7ln365sqhd" path="res://assets/audio/bgm/menu_music.mp3" id="4_u58hp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m75hn"]
 atlas = ExtResource("2_tg0hb")
@@ -30,11 +31,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u58hp")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2027979161]
+[node name="bg" type="TextureRect" parent="." unique_id=252858276]
 layout_mode = 0
-offset_right = 644.0
-offset_bottom = 361.0
-color = Color(0.15294118, 0.3137255, 1, 1)
+offset_top = -7.0
+offset_right = 1069.6309
+offset_bottom = 621.8889
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_hqg3b")
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=207143172]
 layout_mode = 1
@@ -106,8 +109,9 @@ text = "QUIT"
 
 [node name="MusicaMenu" type="AudioStreamPlayer2D" parent="." unique_id=1863799005]
 position = Vector2(271, 152)
-stream = ExtResource("4_26few")
+stream = ExtResource("4_u58hp")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="GridContainer/Load" to="." method="_on_load_pressed"]

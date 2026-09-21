@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var movement_duration : float = 0.5
+@export var movement_duration : float = 0.7
 
 @onready var ic : InteractionComponent = $InteractionComponent
 @onready var shake_component: ShakeComponent = $ShakeComponent
@@ -50,7 +50,8 @@ func push():
 func move(direction : Vector2):
 	if player != null:
 		player.can_move = false
-		
+	$Arrastar.pitch_scale = randf_range(0.85, 1)
+	$Arrastar.play()
 	tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property($".", "global_position", global_position + direction * 32, 0.5)
 	await tween.finished

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://fhxin2gsglh1" path="res://assets/tiles/autorais/animated_pixel_art_tree_spritesheet.png" id="5_y8kfc"]
 [ext_resource type="PackedScene" uid="uid://bmf2rhk3tht7l" path="res://entities/box/box.tscn" id="6_qhxj7"]
 [ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://entities/door/door.tscn" id="7_y8kfc"]
+[ext_resource type="PackedScene" uid="uid://b3pmabde46td2" path="res://rooms/level_3/level_3.tscn" id="8_3dsbk"]
 [ext_resource type="PackedScene" uid="uid://ccjhm2tmr4jt7" path="res://entities/box/box_target.tscn" id="9_ymy75"]
 [ext_resource type="PackedScene" uid="uid://rjv8ysusgp1y" path="res://systems/puzzle_manager/manager_puzzle.tscn" id="10_8rtv0"]
 [ext_resource type="PackedScene" uid="uid://ry1olpv0usqi" path="res://entities/musaranho/musaranho.tscn" id="10_ymy75"]
@@ -14,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b0es2jed4w4ij" path="res://entities/musaranho/musaranho_portrait.png" id="12_3dsbk"]
 [ext_resource type="Texture2D" uid="uid://ceo3iympelyik" path="res://entities/player/player_portrait.png" id="13_l7vcl"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fiih"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7vcl"]
 texture = ExtResource("2_uxpbi")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -82,7 +83,7 @@ texture_region_size = Vector2i(32, 32)
 6:7/0 = 0
 7:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymy75"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0kafq"]
 texture = ExtResource("3_qhxj7")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -138,10 +139,10 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_8rtv0"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_4fiih")
-sources/1 = SubResource("TileSetAtlasSource_ymy75")
+sources/0 = SubResource("TileSetAtlasSource_l7vcl")
+sources/1 = SubResource("TileSetAtlasSource_0kafq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jv8ax"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avs2t"]
 texture = ExtResource("4_n33hy")
 texture_region_size = Vector2i(32, 32)
 2:1/0 = 0
@@ -277,9 +278,9 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_at8ek"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jv8ax")
+sources/0 = SubResource("TileSetAtlasSource_avs2t")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dsbk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wyv2"]
 texture = ExtResource("5_y8kfc")
 texture_region_size = Vector2i(96, 96)
 0:0/animation_frame_0/duration = 0.1
@@ -312,7 +313,7 @@ texture_region_size = Vector2i(96, 96)
 [sub_resource type="TileSet" id="TileSet_l7vcl"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_3dsbk")
+sources/0 = SubResource("TileSetAtlasSource_2wyv2")
 
 [sub_resource type="Resource" id="Resource_ymy75"]
 script = ExtResource("11_at8ek")
@@ -420,6 +421,7 @@ position = Vector2(208, 192)
 
 [node name="Door" parent="." index="8" unique_id=1052326827 groups=["puzzle_door"] instance=ExtResource("7_y8kfc")]
 position = Vector2(432, 288)
+room = ExtResource("8_3dsbk")
 is_locked = true
 
 [node name="ManagerPuzzle" parent="." index="9" unique_id=668368181 node_paths=PackedStringArray("alvos_do_puzzle") instance=ExtResource("10_8rtv0")]
