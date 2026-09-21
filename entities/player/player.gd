@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var input_component: InputComponent = $InputComponent
 @onready var health_component: HealthComponent = $HealthComponent
@@ -10,6 +11,7 @@ class_name Player
 
 var is_alive : bool = true
 var can_move : bool = true
+var is_moving : bool = false
 
 func _ready() -> void:
 	hurtbox_component.hit.connect(_on_hit)
@@ -34,6 +36,7 @@ func _physics_process(delta: float) -> void:
 	if not can_move:
 		movement_component.move(Vector2.ZERO, delta)
 		return 
+		
 		
 	if visual_component.is_attacking:
 		movement_component.move(visual_component.last_direction * 0.4, delta)

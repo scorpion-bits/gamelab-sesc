@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 			if input_component.direction != Vector2.ZERO:
 				last_direction = input_component.direction
 				play("running")
+				
 			else:
 				play("idle")
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvrkl2m43a6gl"
+path="res://.godot/imported/step_grass (mp3cut.net).mp3-99c8378bb4a25a3629b37fe2e4892112.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/step_grass (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/step_grass (mp3cut.net).mp3-99c8378bb4a25a3629b37fe2e4892112.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
