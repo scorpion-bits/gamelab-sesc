@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://c651d7sgc80nv"
 [autoload]
 
 EventSystem="*uid://blyck4pmwqv8w"
+CameraSystem="*uid://bcnjbkodlr8vs"
 DialogueSystem="*uid://b3kvrms6m6dt2"
 InteractionSystem="*uid://buflrslaq0luk"
 Transicionador="*uid://dun5i8wjm58br"

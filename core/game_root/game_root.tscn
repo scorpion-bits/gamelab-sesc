@@ -10,14 +10,10 @@
 [node name="RoomContainer" type="Node2D" parent="." unique_id=988122880 groups=["room_container"]]
 y_sort_enabled = true
 
-[node name="BossRoom" parent="RoomContainer" unique_id=119610155 instance=ExtResource("2_0kuhf")]
-
 [node name="Player" parent="RoomContainer" unique_id=805189541 instance=ExtResource("2_6m7vs")]
 position = Vector2(107, -62)
 
-[node name="Camera2D" type="Camera2D" parent="RoomContainer/Player" unique_id=33842453]
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
+[node name="BossRoom" parent="RoomContainer" unique_id=119610155 instance=ExtResource("2_0kuhf")]
 
 [node name="UserInterface" type="CanvasLayer" parent="." unique_id=1130781063]
 
