@@ -4,4 +4,5 @@ class_name Room
 @onready var spawn_point: Marker2D = $SpawnPoint
 
 func _ready() -> void:
+	print(get_tree().get_first_node_in_group("player"))
 	get_tree().get_first_node_in_group("player").global_position = spawn_point.global_position
