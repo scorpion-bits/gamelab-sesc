@@ -5,6 +5,7 @@ var timer_out : bool = false
 @onready var dialogue_2: DialogueComponent = $"../Dialogue2"
 @onready var dialogue_1: DialogueComponent = $"../Dialogue1"
 @onready var dialogue_start_timer: Timer = $"../DialogueStartTimer"
+@onready var king: CharacterBody2D = $"../King"
 
 
 func _on_cutscene_trigger_area_body_entered(body: Node2D) -> void:
@@ -18,7 +19,6 @@ func _on_cutscene_trigger_area_body_entered(body: Node2D) -> void:
 
 func _on_cutscene_trigger_timer_timeout() -> void:
 	timer_out = true
-	print("timer acabous")
 
 
 func _on_dialogue_start_timer_timeout() -> void:
@@ -26,6 +26,7 @@ func _on_dialogue_start_timer_timeout() -> void:
 	
 
 func _on_dialogue_1_dialogue_finished() -> void:
+	king.animation.play("hand_up")
 	dialogue_2.start_dialogue()
 
 func _on_dialogue_2_dialogue_finished() -> void:
@@ -33,3 +34,4 @@ func _on_dialogue_2_dialogue_finished() -> void:
 	CameraSystem.smoothing = 4
 	CameraSystem.target = player
 	player.can_move = true
+	king.is_active = true

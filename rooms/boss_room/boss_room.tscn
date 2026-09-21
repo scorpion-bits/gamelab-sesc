@@ -85,7 +85,7 @@ glow_hdr_scale = 0.0
 fog_density = 0.3196
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4pr2"]
-size = Vector2(748, 379)
+size = Vector2(746, 442)
 
 [sub_resource type="Resource" id="Resource_u3x5j"]
 script = ExtResource("7_jt71r")
@@ -142,7 +142,7 @@ position = Vector2(-76, -301)
 [node name="CutsceneTriggerArea" type="Area2D" parent="." index="6" unique_id=319350384]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneTriggerArea" index="0" unique_id=1696070514]
-position = Vector2(0, -88.5)
+position = Vector2(-1, -57)
 shape = SubResource("RectangleShape2D_k4pr2")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
