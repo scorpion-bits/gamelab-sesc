@@ -26,3 +26,11 @@ func _on_body_entered(body: Node2D) -> void:
 	else:
 		direction = global_position.direction_to(body.global_position)
 		bounce_amount -= 1
+		
+func set_color_blue():
+	$Sprite2D2.show()
+	$Sprite2D.hide()
+	
+func set_color_red():
+	$Sprite2D2.hide()
+	$Sprite2D.show()

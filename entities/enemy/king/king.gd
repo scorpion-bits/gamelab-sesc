@@ -50,22 +50,22 @@ func teleport(new_position : Vector2):
 	var attack_type = randi_range(1,3)
 	
 	if attack_type == 1:
-		tween.tween_callback(spiral_attack)
+		tween.tween_callback(spiral_attack.bind(200.0, 2.0, 0, "red"))
 	elif attack_type == 2:
-		tween.tween_callback(spiral_attack)
+		tween.tween_callback(spiral_attack.bind(200.0, 6.0, 1, "blue"))
 	else:
-		tween.tween_callback(spiral_attack)
+		tween.tween_callback(_shoot_attack)
 	
 	
 	_create_ghost()
 	
-func shoot_attack():
+func _shoot_attack():
 	_set_normal()
 	animation.play("attack_down")
 	await animation.animation_finished
 	_spawn_projectiles_on_player_direction()
 
-func spiral_attack():
+func spiral_attack(projectile_speed : float, projectile_duration : float, projectile_bounce_amount : int, color : String):
 	if randi_range(0,1):
 		positive_or_negative = 1
 	else:
@@ -74,7 +74,7 @@ func spiral_attack():
 	animation.play("attack_down")
 	await animation.animation_finished
 	_angle = 0.0
-	_spawn_projectiles()
+	_spawn_projectiles(projectile_speed, projectile_duration, projectile_bounce_amount, color)
 	
 func _spawn_projectiles_on_player_direction():
 	var projectile_spawner = create_tween()
@@ -95,21 +95,27 @@ func _spawn_projectile_on_player_direction():
 	projectile_instance.direction = projectile_instance.global_position.direction_to(get_tree().get_first_node_in_group("player").hurtbox_component.global_position)
 	
 
-func _spawn_projectiles():
+func _spawn_projectiles(projectile_speed : float, projectile_duration : float, projectile_bounce_amount : int, color : String):
 	var projectile_spawner = create_tween()
 	projectile_spawner.set_loops(int(projectile_spawn_duration / projectile_spawn_interval))
 	projectile_spawner.tween_interval(projectile_spawn_interval)
-	projectile_spawner.tween_callback(_spawn_projectile)
+	projectile_spawner.tween_callback(_spawn_projectile.bind(projectile_speed, projectile_duration, projectile_bounce_amount, color))
 	
 	
-func _spawn_projectile():
+func _spawn_projectile(projectile_speed : float, projectile_duration : float, projectile_bounce_amount : int, color : String):
 	var projectile_instance = load("res://entities/enemy/king/king_projectile.tscn").instantiate()
 	get_tree().get_first_node_in_group("room").add_child(projectile_instance)
 	
 	projectile_instance.global_position = global_position
 	projectile_instance.direction = Vector2.RIGHT.rotated(_angle)
-	projectile_instance.bounce_amount = 5
-	projectile_instance.duration = 20
+	projectile_instance.bounce_amount = projectile_bounce_amount
+	projectile_instance.duration = projectile_duration
+	projectile_instance.speed = projectile_speed
+	
+	if color == "red":
+		projectile_instance.set_color_red()
+	elif color == "blue":
+		projectile_instance.set_color_blue()
 	
 	_angle += attack_spiral_rotations * TAU / (projectile_spawn_duration / projectile_spawn_interval) * positive_or_negative
 	
