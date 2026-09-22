@@ -49,22 +49,22 @@ func teleport(new_position : Vector2):
 	var attack_type = randi_range(1,3)
 	
 	if attack_type == 1:
-		tween.tween_callback(attack_1)
+		tween.tween_callback(spiral_attack)
 	elif attack_type == 2:
-		tween.tween_callback(attack_2)
+		tween.tween_callback(spiral_attack)
 	else:
-		tween.tween_callback(attack_2)
+		tween.tween_callback(spiral_attack)
 	
 	
 	_create_ghost()
 	
-func attack_2():
+func shoot_attack():
 	_set_normal()
 	animation.play("attack_down")
 	await animation.animation_finished
 	_spawn_projectiles_on_player_direction()
 
-func attack_1():
+func spiral_attack():
 	if randi_range(0,1):
 		positive_or_negative = 1
 	else:
@@ -104,12 +104,11 @@ func _spawn_projectiles():
 func _spawn_projectile():
 	var projectile_instance = load("res://entities/enemy/king/king_projectile.tscn").instantiate()
 	get_tree().get_first_node_in_group("room").add_child(projectile_instance)
-	var projectile_tween = create_tween()
-	projectile_tween.tween_interval(2.0)
-	projectile_tween.tween_callback(projectile_instance.queue_free)
 	
 	projectile_instance.global_position = global_position
 	projectile_instance.direction = Vector2.RIGHT.rotated(_angle)
+	projectile_instance.bounce_amount = 5
+	projectile_instance.duration = 20
 	
 	_angle += attack_spiral_rotations * TAU / (projectile_spawn_duration / projectile_spawn_interval) * positive_or_negative
 	
