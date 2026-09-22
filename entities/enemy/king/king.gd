@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var health: HealthComponent = $HealthComponent
 @onready var teleport_timer: Timer = $TeleportTimer
+@onready var dialogue_3: Node = $"../Dialogue3"
+@onready var cl: CanvasLayer = $"../CanvasLayer"
 
 @export var teleport_time : float = 0.3
 
@@ -120,6 +122,8 @@ func  _on_died():
 	teleport_timer.stop()
 	CameraSystem.target = self
 	animation.play("defeated")
+	cl.hide()
+	dialogue_3.start_dialogue()
 
 func _on_hit(source: HitboxComponent) -> void:
 	if is_active:

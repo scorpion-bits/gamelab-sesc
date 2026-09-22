@@ -7,7 +7,9 @@ var timer_out : bool = false
 @onready var dialogue_start_timer: Timer = $"../DialogueStartTimer"
 @onready var king: CharacterBody2D = $"../King"
 @export var musica_do_boss : AudioStream
+@export var musica_final : AudioStream
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
+@onready var dialogue_3: Node = $"../Dialogue3"
 
 
 func _on_cutscene_trigger_area_body_entered(body: Node2D) -> void:
@@ -40,3 +42,16 @@ func _on_dialogue_2_dialogue_finished() -> void:
 	canvas_layer.show()
 	if musica_do_boss != null:
 		AudioManager.play_music(musica_do_boss)
+
+
+func _on_dialogue_3_dialogue_finished() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	CameraSystem.smoothing = 4
+	CameraSystem.target = player
+	player.can_move = true
+
+
+func _on_dialogue_3_dialogue_started() -> void:
+	if musica_do_boss != null:
+		AudioManager.stop_music()
+		AudioManager.play_music(musica_final)

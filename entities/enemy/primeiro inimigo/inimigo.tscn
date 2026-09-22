@@ -294,6 +294,7 @@ position = Vector2(22, 0.5)
 libraries/ = SubResource("AnimationLibrary_0dgd2")
 
 [node name="Recarga" type="Timer" parent="." unique_id=595845414]
+wait_time = 2.0
 autostart = true
 
 [node name="HealthComponent" parent="." unique_id=454567807 instance=ExtResource("6_rhp3c")]
