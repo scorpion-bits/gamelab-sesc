@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bjeroimsd6kri"]
+
+[ext_resource type="Script" uid="uid://elnvks2uoxwv" path="res://canvas_layer.gd" id="1_hhfee"]
+[ext_resource type="FontFile" uid="uid://0213m4228f4s" path="res://assets/fonts/deutsch_gothic/Deutsch.ttf" id="2_s0q6m"]
+
+[node name="PauseUi" type="CanvasLayer" unique_id=611339952]
+process_mode = 3
+script = ExtResource("1_hhfee")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=452785034]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -49.0
+offset_right = 54.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=6559132]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -43.0
+offset_right = 51.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continuar" type="Button" parent="ColorRect/VBoxContainer" unique_id=223321350]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s0q6m")
+text = "Continue"
+
+[node name="Reiniciar" type="Button" parent="ColorRect/VBoxContainer" unique_id=262799405]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s0q6m")
+text = "Reset"
+
+[node name="VoltarAoMenu" type="Button" parent="ColorRect/VBoxContainer" unique_id=576031643]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s0q6m")
+text = "Back To Menu"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/VoltarAoMenu" to="." method="_on_voltar_ao_menu_pressed"]
