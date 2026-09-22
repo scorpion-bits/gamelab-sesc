@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dqw58e515p6by" path="res://entities/enemy/king/king_portrait_rage.png" id="8_bfv4j"]
 [ext_resource type="Texture2D" uid="uid://etxw6iuh0ieb" path="res://entities/enemy/king/king_portrait.png" id="8_jt71r"]
 [ext_resource type="PackedScene" uid="uid://bhgldh0puj1iq" path="res://user_interface/king_health_ui/king_health_ui.tscn" id="12_sfewc"]
+[ext_resource type="PackedScene" uid="uid://j8g0spxlngye" path="res://entities/throne/throne.tscn" id="13_ipogx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcc8s"]
 texture = ExtResource("2_wcc8s")
@@ -216,6 +217,9 @@ visible = false
 
 [node name="KingHealthUI" parent="CanvasLayer" index="0" unique_id=177024581 instance=ExtResource("12_sfewc")]
 size_flags_vertical = 8
+
+[node name="Throne" parent="." index="14" unique_id=758860469 instance=ExtResource("13_ipogx")]
+position = Vector2(0, -226)
 
 [connection signal="body_entered" from="CutsceneTriggerArea" to="RoomEvent" method="_on_cutscene_trigger_area_body_entered"]
 [connection signal="dialogue_finished" from="Dialogue2" to="RoomEvent" method="_on_dialogue_2_dialogue_finished"]

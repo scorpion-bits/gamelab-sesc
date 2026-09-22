@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://j8g0spxlngye"]
+
+[ext_resource type="Texture2D" uid="uid://b4ripsb7e3og8" path="res://entities/throne/thorne.png" id="1_irs2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra2i3"]
+size = Vector2(56, 20)
+
+[node name="Throne" type="StaticBody2D" unique_id=758860469]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1414185753]
+position = Vector2(0, -30)
+texture = ExtResource("1_irs2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1612496404]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_ra2i3")
