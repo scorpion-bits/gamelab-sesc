@@ -401,7 +401,7 @@ tile_set = SubResource("TileSet_l7vcl")
 [node name="UpperPosition" type="TileMapLayer" parent="Tiles" index="3" unique_id=1559265345]
 
 [node name="SpawnPoint" parent="." index="1" unique_id=777194575]
-position = Vector2(544, 328)
+position = Vector2(577, 328)
 
 [node name="Box" parent="." index="2" unique_id=228113920 instance=ExtResource("6_qhxj7")]
 position = Vector2(176, 320)
