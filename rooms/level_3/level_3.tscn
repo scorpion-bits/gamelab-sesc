@@ -368,7 +368,7 @@ position = Vector2(88, -216)
 position = Vector2(256, -56)
 
 [node name="Ayla" parent="." index="9" unique_id=1758367342 instance=ExtResource("12_jnkhk")]
-position = Vector2(55, 148)
+position = Vector2(48, 151)
 
 [editable path="Inimigos/Inimigo"]
 [editable path="Inimigos/Inimigo3"]

@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dn77xpawnkgtv"]
+
+[ext_resource type="Texture2D" uid="uid://fhxin2gsglh1" path="res://assets/tiles/autorais/animated_pixel_art_tree_spritesheet.png" id="1_xs1ax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf0ro"]
+size = Vector2(20, 18.5)
+
+[sub_resource type="Animation" id="Animation_xs1ax"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_20x5l"]
+resource_name = "new_animation"
+length = 2.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 23]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38xc8"]
+_data = {
+&"RESET": SubResource("Animation_xs1ax"),
+&"new_animation": SubResource("Animation_20x5l")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1820245430]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=67263674]
+texture = ExtResource("1_xs1ax")
+hframes = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174166466]
+position = Vector2(0, 35.25)
+shape = SubResource("RectangleShape2D_hf0ro")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1706670122]
+libraries/ = SubResource("AnimationLibrary_38xc8")
+autoplay = &"new_animation"

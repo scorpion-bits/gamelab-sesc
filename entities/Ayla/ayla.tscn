@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://p1xeicbko20q" path="res://entities/Ayla/ayla.gd" id="1_5fhti"]
 [ext_resource type="Texture2D" uid="uid://b2lwpn2yknst3" path="res://assets/portraits/ayla_portrait.png" id="1_moe4g"]
 [ext_resource type="Script" uid="uid://cpuldr6pv0brc" path="res://components/interaction_component/interaction_component.gd" id="2_5fhti"]
+[ext_resource type="Texture2D" uid="uid://jvroap43i30f" path="res://entities/Ayla/Ayla.png" id="2_fekr5"]
 [ext_resource type="Script" uid="uid://rj3p405knwcb" path="res://components/outline_component/outline_component.gd" id="3_fekr5"]
 [ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="4_c8fv2"]
 [ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="5_0k51k"]
@@ -43,7 +44,7 @@ metadata/_custom_type_script = "uid://cqx633eegleoo"
 script = ExtResource("1_5fhti")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=437603963]
-texture = ExtResource("1_moe4g")
+texture = ExtResource("2_fekr5")
 
 [node name="InteractionComponent" type="Area2D" parent="." unique_id=558997996 node_paths=PackedStringArray("target")]
 script = ExtResource("2_5fhti")

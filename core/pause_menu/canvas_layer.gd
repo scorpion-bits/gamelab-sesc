@@ -30,9 +30,10 @@ func _on_continuar_pressed() -> void:
 
 func _on_reiniciar_pressed() -> void:
 	alternar_pausa() 
-	var sala_atual = get_tree().get_first_node_in_group("room")
+	var sala_atual = get_tree().get_first_node_in_group("room").scene_file_path
 	if sala_atual != null:
-		var cena_sala = load(sala_atual.scene_file_path)
+		print(sala_atual)
+		var cena_sala = load(sala_atual)
 		Transicionador.change_room(cena_sala)
 
 

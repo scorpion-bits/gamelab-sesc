@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c24ahq71q4ep7" path="res://core/main_menu/menu_inicial.gd" id="1_u58hp"]
 [ext_resource type="AudioStream" uid="uid://lir1k6d1qvsg" path="res://assets/audio/sfx/hover_buttom.mp3" id="2_26few"]
-[ext_resource type="Texture2D" uid="uid://8jkuvico3wvr" path="res://core/main_menu/capa.png" id="2_hqg3b"]
 [ext_resource type="AudioStream" uid="uid://bg2aqhqlvoqfc" path="res://assets/audio/sfx/pressed_button.mp3" id="3_1ylce"]
 [ext_resource type="Texture2D" uid="uid://dcum7n2aehsg3" path="res://assets/shaders/Sprite-0002.png" id="3_7q0hh"]
 [ext_resource type="FontFile" uid="uid://0213m4228f4s" path="res://assets/fonts/deutsch_gothic/Deutsch.ttf" id="3_26few"]
 [ext_resource type="PackedScene" uid="uid://c83guxtc5fmsu" path="res://user_interface/cursor_ui/game_ui.tscn" id="3_hqg3b"]
+[ext_resource type="Texture2D" uid="uid://bhbpjyogqiqux" path="res://assets/uis/capa true.jpeg" id="4_7q0hh"]
 [ext_resource type="AudioStream" uid="uid://kg7ln365sqhd" path="res://assets/audio/bgm/menu_music.mp3" id="4_u58hp"]
 
 [sub_resource type="Environment" id="Environment_ebum8"]
@@ -80,7 +80,7 @@ offset_top = -7.0
 offset_right = 1069.6309
 offset_bottom = 621.8889
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("2_hqg3b")
+texture = ExtResource("4_7q0hh")
 
 [node name="Shader" type="ShaderGlobalsOverride" parent="Background" unique_id=489098012]
 
@@ -145,6 +145,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7q0hh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ylce")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ltsen")
 theme_override_styles/focus = SubResource("StyleBoxFlat_l0b38")
+disabled = true
 text = "Options"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer/MenuButtons" unique_id=1529271752]

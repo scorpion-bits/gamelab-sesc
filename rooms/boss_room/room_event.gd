@@ -2,6 +2,7 @@ extends Node
 
 var cutscene_triggered : bool = false
 var timer_out : bool = false
+@export var room : PackedScene
 @onready var dialogue_2: DialogueComponent = $"../Dialogue2"
 @onready var dialogue_1: DialogueComponent = $"../Dialogue1"
 @onready var dialogue_start_timer: Timer = $"../DialogueStartTimer"
@@ -10,7 +11,16 @@ var timer_out : bool = false
 @export var musica_final : AudioStream
 @onready var canvas_layer: CanvasLayer = $"../CanvasLayer"
 @onready var dialogue_3: Node = $"../Dialogue3"
+@onready var trono: InteractionComponent = $"../ComponenteInteracao"
 
+func _ready() -> void:
+	trono.monitoring = false
+	trono.interacao = call_lore
+
+
+func call_lore()-> void:
+	Transicionador.change_room(room)
+	
 
 func _on_cutscene_trigger_area_body_entered(body: Node2D) -> void:
 	if !cutscene_triggered and body is Player and timer_out:
@@ -49,6 +59,7 @@ func _on_dialogue_3_dialogue_finished() -> void:
 	CameraSystem.smoothing = 4
 	CameraSystem.target = player
 	player.can_move = true
+	trono.monitoring = true
 
 
 func _on_dialogue_3_dialogue_started() -> void:
