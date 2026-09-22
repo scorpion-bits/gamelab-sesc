@@ -6,6 +6,7 @@ var timer_out : bool = false
 @onready var dialogue_1: DialogueComponent = $"../Dialogue1"
 @onready var dialogue_start_timer: Timer = $"../DialogueStartTimer"
 @onready var king: CharacterBody2D = $"../King"
+@export var musica_do_boss : AudioStream
 
 
 func _on_cutscene_trigger_area_body_entered(body: Node2D) -> void:
@@ -35,3 +36,5 @@ func _on_dialogue_2_dialogue_finished() -> void:
 	CameraSystem.target = player
 	player.can_move = true
 	king.is_active = true
+	if musica_do_boss != null:
+		AudioManager.play_music(musica_do_boss)

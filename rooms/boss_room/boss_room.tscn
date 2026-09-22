@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://n13milrm348e" path="res://assets/tiles/autorais/dungeon.png" id="2_wcc8s"]
 [ext_resource type="PackedScene" uid="uid://ds6mat4bdgj6t" path="res://entities/torch/torch.tscn" id="3_yr5eq"]
 [ext_resource type="Script" uid="uid://eg3nsulmdloh" path="res://rooms/boss_room/room_event.gd" id="4_k675t"]
+[ext_resource type="Texture2D" uid="uid://byqkf61incf5t" path="res://entities/enemy/king/king_hand.png" id="5_37jqs"]
 [ext_resource type="PackedScene" uid="uid://1a4egkoqv7qp" path="res://entities/enemy/king/king.tscn" id="5_eqk62"]
+[ext_resource type="AudioStream" uid="uid://dlm356txrwry2" path="res://assets/audio/bgm/battle 1.mp3" id="6_ti20a"]
 [ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="6_u3x5j"]
 [ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="7_jt71r"]
 [ext_resource type="Texture2D" uid="uid://dqw58e515p6by" path="res://entities/enemy/king/king_portrait_rage.png" id="8_bfv4j"]
@@ -14,28 +16,47 @@
 texture = ExtResource("2_wcc8s")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 4.779461, 16, 5.098091, 4.1422005, 16, 3.8235703)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 7.3285084, 16, -16, 16, -16, 5.4167213, 6.372616, 5.4167213, 16, 5.7353516)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, 4.779461, -4.1422005, 5.098091, -3.8235703, 16)
 3:0/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, -7.3285084, 16, 16, 5.4167213, 16, 5.4167213, -6.372616, 5.7353516, -16)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, 7.3285084, -16, -16, -5.4167213, -16, -5.4167213, 6.372616, -5.7353516, 16)
 3:1/0 = 0
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, -7.3285084, 16, 16, 5.4167213, 16, 5.4167213, -6.372616, 5.7353516, -16)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, 7.3285084, -16, -16, -5.4167213, -16, -5.4167213, 6.372616, -5.7353516, 16)
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, -4.779461, 4.1422005, -5.098091, 3.8235703, -16)
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -7.3285084, -16, 16, -16, 16, -5.4167213, -6.372616, -5.4167213, -16, -5.7353516)
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -4.779461, -16, -5.098091, -4.1422005, -16, -3.8235703)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 7.3285084, 16, -16, 16, -16, 5.4167213, 6.372616, 5.4167213, 6.372616, -16, 16, -16)
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, 7.3285084, -16, -16, -5.4167213, -16, -5.4167213, 6.372616, 16, 6.372616, 16, 16)
 4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, 7.3285084, -16, -16, -5.4167213, -16, -5.4167213, 6.372616, 16, 6.372616, 16, 16)
 4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 7.3285084, 16, -16, 16, -16, 5.4167213, 6.372616, 5.4167213, 6.372616, -16, 16, -16)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -7.3285084, -16, 16, -16, 16, -5.4167213, -6.372616, -5.4167213, -6.372616, 16, -16, 16)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, -7.3285084, 16, 16, 5.4167213, 16, 5.4167213, -6.372616, -16, -6.372616, -16, -16)
 
 [sub_resource type="TileSet" id="TileSet_mx6ng"]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wcc8s")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yr5eq"]
@@ -81,6 +102,7 @@ sources/0 = SubResource("TileSetAtlasSource_yr5eq")
 background_mode = 3
 glow_enabled = true
 glow_intensity = 0.38
+glow_strength = 0.69
 glow_bloom = 0.05
 glow_blend_mode = 0
 glow_hdr_scale = 0.75
@@ -162,8 +184,16 @@ debug_color = Color(0, 0.6, 0.69803923, 0)
 [node name="King" parent="." index="7" unique_id=224371529 instance=ExtResource("5_eqk62")]
 position = Vector2(0, -171)
 
+[node name="Sprite2D" parent="King" index="0" unique_id=414763179]
+texture = ExtResource("5_37jqs")
+hframes = 1
+
+[node name="TeleportTimer" parent="King" index="5" unique_id=926574489]
+wait_time = 3.0
+
 [node name="RoomEvent" type="Node" parent="." index="8" unique_id=32601687]
 script = ExtResource("4_k675t")
+musica_do_boss = ExtResource("6_ti20a")
 
 [node name="Dialogue2" type="Node" parent="." index="9" unique_id=683664234]
 script = ExtResource("6_u3x5j")
@@ -189,3 +219,6 @@ one_shot = true
 [connection signal="dialogue_finished" from="Dialogue1" to="RoomEvent" method="_on_dialogue_1_dialogue_finished"]
 [connection signal="timeout" from="CutsceneTriggerTimer" to="RoomEvent" method="_on_cutscene_trigger_timer_timeout"]
 [connection signal="timeout" from="DialogueStartTimer" to="RoomEvent" method="_on_dialogue_start_timer_timeout"]
+
+[editable path="King"]
+[editable path="King/HurtboxComponent"]
