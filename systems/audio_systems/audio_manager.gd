@@ -19,3 +19,7 @@ func play_sfx(som: AudioStream):
 	sfx_player.play()
 	
 	sfx_player.finished.connect(sfx_player.queue_free)
+
+func stop_music():
+	music_player.stop()
+	music_player.stream = null

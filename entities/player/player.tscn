@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dmak8t3fu1d8t" path="res://entities/player/player_spritesheet-export.png" id="3_bectd"]
 [ext_resource type="Script" uid="uid://dtkpaqnik704t" path="res://components/movement_component/movement_component.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://dhm1dikbpo0r8" path="res://components/input_component/input_component.gd" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://c7n2qrmq5lquw" path="res://assets/audio/sfx/fire.mp3" id="4_wvtmh"]
 [ext_resource type="Script" uid="uid://bmp1mdyuph7qy" path="res://components/visual_component/visual_component.gd" id="5_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://components/hurtbox_component/hurtbox_component.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://components/health_component/health_component.tscn" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://jn1h2vbgnjdt" path="res://components/hitbox_component/hitbox_component.tscn" id="9_bectd"]
-[ext_resource type="AudioStream" uid="uid://dvrkl2m43a6gl" path="res://assets/audio/sfx/step_grass (mp3cut.net).mp3" id="10_wvtmh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hngma"]
 radius = 3.9997807
@@ -89,10 +89,22 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("step:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_bectd"]
 resource_name = "attack_down"
-length = 0.3
+length = 0.40523148
 step = 0.03
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -101,7 +113,7 @@ tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.06, 0.089999996, 0.12, 0.14999999, 0.17999999, 0.21, 0.24, 0.26999998),
+"times": PackedFloat32Array(0, 0.03, 0.07387778, 0.11498002, 0.14636782, 0.18747003, 0.22024557, 0.2557967, 0.29551113, 0.34632784),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
@@ -137,15 +149,27 @@ tracks/3/path = NodePath("HitboxComponent/CollisionPolygon2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.087712415, 0.18026413),
+"times": PackedFloat32Array(0, 0.12934579, 0.31904203),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("step:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_j3ovn"]
 resource_name = "attack_left"
-length = 0.3
+length = 0.40106815
 step = 0.03
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -154,7 +178,7 @@ tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.060606062, 0.09090909, 0.16402489, 0.21212122, 0.26527366),
+"times": PackedFloat32Array(0, 0.052279383, 0.1450325, 0.20565826, 0.2856735, 0.3610304),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [121, 122, 123, 124, 125, 126]
@@ -166,7 +190,7 @@ tracks/1/path = NodePath("HitboxComponent/CollisionPolygon2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.08808848, 0.21005714),
+"times": PackedFloat32Array(0, 0.15886521, 0.3516106),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -195,10 +219,22 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 25)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("step:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_afbqv"]
 resource_name = "attack_right"
-length = 0.3
+length = 0.39999999999999997
 step = 0.03
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -207,7 +243,7 @@ tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.046262484, 0.09116976, 0.18621972, 0.22638378, 0.27196866),
+"times": PackedFloat32Array(0, 0.06985474, 0.14390537, 0.21675086, 0.28189492, 0.3455209),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [121, 122, 123, 124, 125, 126]
@@ -243,7 +279,7 @@ tracks/3/path = NodePath("HitboxComponent/CollisionPolygon2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.08741088, 0.22360921),
+"times": PackedFloat32Array(0, 0.1720654, 0.3512849),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -255,15 +291,27 @@ tracks/4/path = NodePath("PlayerSprite:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.399),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("step:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wvtmh"]
 resource_name = "attack_up"
-length = 0.3
+length = 0.40800703
 step = 0.03
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -272,7 +320,7 @@ tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0009999999, 0.029999997, 0.059999995, 0.089999996, 0.11999999, 0.14999999, 0.17999999, 0.20999998, 0.23999998, 0.26999998),
+"times": PackedFloat32Array(0.0009999999, 0.029999997, 0.059999995, 0.105265565, 0.14498001, 0.17914335, 0.21747002, 0.26412335, 0.3066134, 0.35326672),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
@@ -284,7 +332,7 @@ tracks/1/path = NodePath("HitboxComponent/CollisionPolygon2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.08831733, 0.17723957),
+"times": PackedFloat32Array(0, 0.1160729, 0.30352747),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -312,6 +360,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("step:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_a1qjk"]
@@ -506,7 +566,14 @@ _data = {
 radius = 4.0
 height = 14.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bectd"]
+random_pitch = 1.0905077
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("4_wvtmh")
+
 [node name="Player" type="CharacterBody2D" unique_id=805189541 groups=["player"]]
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_qlg0r")
 
@@ -569,7 +636,7 @@ disabled = true
 [node name="Recarga" type="Timer" parent="." unique_id=1580170180]
 
 [node name="step" type="AudioStreamPlayer2D" parent="." unique_id=1014242256]
-stream = ExtResource("10_wvtmh")
+stream = SubResource("AudioStreamRandomizer_bectd")
 
 [editable path="HurtboxComponent"]
 [editable path="HitboxComponent"]

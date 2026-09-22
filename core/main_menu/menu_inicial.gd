@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var menu_buttons: VBoxContainer = $MarginContainer/VBoxContainer/MenuButtons
 @onready var start_button: Button = $MarginContainer/VBoxContainer/MenuButtons/StartButton

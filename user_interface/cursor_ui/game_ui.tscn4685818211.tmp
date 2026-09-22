@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ejvqrdhm6g2w" path="res://user_interface/cursor_ui/cursor.png" id="2_u001w"]
 
 [node name="GameUi" type="CanvasLayer" unique_id=1834502047]
-layer = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=689375293]
 texture = ExtResource("2_u001w")

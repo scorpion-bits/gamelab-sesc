@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cta25gu0oqwqo" path="res://rooms/room.tscn" id="1_ska8a"]
 [ext_resource type="Texture2D" uid="uid://bovx0pl0v6or6" path="res://assets/tiles/autorais/terrain_grass.png" id="2_6dwt3"]
+[ext_resource type="AudioStream" uid="uid://dy0xwjhp54x72" path="res://assets/audio/bgm/game_music.mp3" id="2_piyaa"]
 [ext_resource type="Texture2D" uid="uid://yoppblbs84oc" path="res://assets/tiles/autorais/floor_tiles.png" id="3_lcf4w"]
 [ext_resource type="Texture2D" uid="uid://conpmetnkwpw5" path="res://assets/tiles/autorais/walls.png" id="4_5o230"]
 [ext_resource type="Texture2D" uid="uid://fhxin2gsglh1" path="res://assets/tiles/autorais/animated_pixel_art_tree_spritesheet.png" id="5_xncik"]
@@ -390,6 +391,7 @@ portrait = ExtResource("10_t6lab")
 metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [node name="Level1" unique_id=119610155 instance=ExtResource("1_ska8a")]
+room_music = ExtResource("2_piyaa")
 
 [node name="Tiles" type="Node2D" parent="." index="0" unique_id=1887202304]
 
@@ -402,6 +404,7 @@ tile_map_data = PackedByteArray("AAADAP//AAAGAAEAAAADAAAAAAAGAAIAAAAEAP//AAAHAAE
 tile_set = SubResource("TileSet_a025n")
 
 [node name="Details" type="TileMapLayer" parent="Tiles" index="2" unique_id=1729625848]
+y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAKAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAANAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_1nvn7")
 

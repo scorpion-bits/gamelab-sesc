@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cro5vrjenoxx4"]
 
 [ext_resource type="PackedScene" uid="uid://cta25gu0oqwqo" path="res://rooms/room.tscn" id="1_aqpd4"]
+[ext_resource type="AudioStream" uid="uid://dy0xwjhp54x72" path="res://assets/audio/bgm/game_music.mp3" id="2_l7vcl"]
 [ext_resource type="Texture2D" uid="uid://bovx0pl0v6or6" path="res://assets/tiles/autorais/terrain_grass.png" id="2_uxpbi"]
 [ext_resource type="Texture2D" uid="uid://yoppblbs84oc" path="res://assets/tiles/autorais/floor_tiles.png" id="3_qhxj7"]
 [ext_resource type="Texture2D" uid="uid://conpmetnkwpw5" path="res://assets/tiles/autorais/walls.png" id="4_n33hy"]
@@ -380,6 +381,7 @@ portrait = ExtResource("12_3dsbk")
 metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [node name="Level2" unique_id=119610155 instance=ExtResource("1_aqpd4")]
+room_music = ExtResource("2_l7vcl")
 
 [node name="Tiles" type="Node2D" parent="." index="0" unique_id=1449693036]
 z_index = -5
