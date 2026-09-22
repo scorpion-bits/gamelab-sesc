@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buhuvdit8tnm1" path="res://entities/enemy/king/king.gd" id="1_5v51t"]
 [ext_resource type="Texture2D" uid="uid://b6yjfr3s34wau" path="res://entities/enemy/king/king_normal.png" id="1_r4k0e"]
+[ext_resource type="AudioStream" uid="uid://buoetw73gsnvn" path="res://assets/audio/sfx/hit king.wav" id="2_2r748"]
 [ext_resource type="Texture2D" uid="uid://byqkf61incf5t" path="res://entities/enemy/king/king_hand.png" id="2_b7n3a"]
 [ext_resource type="Texture2D" uid="uid://r88pi28u5xyr" path="res://entities/enemy/king/king_attack.png" id="2_uf4o8"]
 [ext_resource type="Texture2D" uid="uid://dn5xggd1qq3r7" path="res://entities/enemy/king/king_defeated.png" id="5_0uw4t"]
@@ -34,6 +35,11 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dg3nu"]
+random_pitch = 1.07954
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("2_2r748")
 
 [sub_resource type="Animation" id="Animation_2r748"]
 resource_name = "attack_down"
@@ -231,6 +237,7 @@ height = 42.0
 
 [node name="King" type="CharacterBody2D" unique_id=224371529 groups=["boss"]]
 script = ExtResource("1_5v51t")
+som_dano = SubResource("AudioStreamRandomizer_dg3nu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=414763179]
 position = Vector2(0, 2.5)

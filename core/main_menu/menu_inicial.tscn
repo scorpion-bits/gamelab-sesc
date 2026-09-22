@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://lhx7yghjm3ok"]
 
 [ext_resource type="Script" uid="uid://c24ahq71q4ep7" path="res://core/main_menu/menu_inicial.gd" id="1_u58hp"]
+[ext_resource type="AudioStream" uid="uid://lir1k6d1qvsg" path="res://assets/audio/sfx/hover_buttom.mp3" id="2_26few"]
 [ext_resource type="Texture2D" uid="uid://8jkuvico3wvr" path="res://core/main_menu/capa.png" id="2_hqg3b"]
+[ext_resource type="AudioStream" uid="uid://bg2aqhqlvoqfc" path="res://assets/audio/sfx/pressed_button.mp3" id="3_1ylce"]
 [ext_resource type="Texture2D" uid="uid://dcum7n2aehsg3" path="res://assets/shaders/Sprite-0002.png" id="3_7q0hh"]
 [ext_resource type="FontFile" uid="uid://0213m4228f4s" path="res://assets/fonts/deutsch_gothic/Deutsch.ttf" id="3_26few"]
 [ext_resource type="PackedScene" uid="uid://c83guxtc5fmsu" path="res://user_interface/cursor_ui/game_ui.tscn" id="3_hqg3b"]
@@ -66,6 +68,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="MenuInicial" type="CanvasLayer" unique_id=2056206986]
 script = ExtResource("1_u58hp")
+som_hover = ExtResource("2_26few")
+som_pressed = ExtResource("3_1ylce")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=274595758]
 environment = SubResource("Environment_ebum8")
@@ -170,4 +174,5 @@ bus = &"Music"
 [node name="GameUi" parent="." unique_id=1834502047 instance=ExtResource("3_hqg3b")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButtons/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]

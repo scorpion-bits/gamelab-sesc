@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmujs2sbej2bp"
+path="res://.godot/imported/famale hurt.mp3-4b55abb9c3af8bf1f0e8e744d6322403.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/famale hurt.mp3"
+dest_files=["res://.godot/imported/famale hurt.mp3-4b55abb9c3af8bf1f0e8e744d6322403.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

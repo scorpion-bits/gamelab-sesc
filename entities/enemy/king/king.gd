@@ -20,7 +20,7 @@ var positive_or_negative : int
 @export var projectile_spawn_interval: float = 0.05
 @export var projectile_spawn_duration : float = 2.0
 @export var attack_spiral_rotations : int = 3.0
-
+@export var som_dano : AudioStream
 var _angle : float = 0.0
 
 func _ready() -> void:
@@ -126,6 +126,8 @@ func _on_hit(source: HitboxComponent) -> void:
 		_flash()
 		animation.play("damage_taken")
 		health.take_damage(source.damage)
+		if som_dano != null:
+			AudioManager.play_sfx(som_dano)
 	
 #visual functions
 
