@@ -1,8 +1,8 @@
-extends Control
+extends CanvasLayer
 
-@export var scroll_speed: float = 40.0 # Velocidade normal de rolagem (pixels por segundo)
-@export var fast_scroll_multiplier: float = 3.0 # Multiplicador ao segurar o botão de acelerar
-@export var next_scene_path: String = "res://scenes/MainMenu.tscn"
+@export var scroll_speed: float = 40.0 
+@export var fast_scroll_multiplier: float = 3.0 
+@export var next_scene_path: String = "res://core/main_menu/menu_inicial.tscn"
 
 @onready var credits_container: Control = $CreditsContainer
 @onready var vbox: VBoxContainer = $CreditsContainer/VBoxContainer
@@ -10,7 +10,7 @@ extends Control
 var is_scrolling: bool = true
 
 func _ready() -> void:
-	credits_container.position.y = get_viewport_rect().size.y
+	credits_container.position.y = get_viewport().get_visible_rect().size.y
 
 func _process(delta: float) -> void:
 	if not is_scrolling:
@@ -35,7 +35,6 @@ func _end_credits() -> void:
 		return
 	is_scrolling = false
 	
-	# Transição suave de saída antes de mudar de cena
-	#var tween = create_tween()
-	#tween.tween_property(self, "modulate:a", 0.0, 1.5)
-	#tween.tween_callback(func(): get_tree().change_scene_to_file())
+	var tween = create_tween()
+	tween.tween_property(credits_container, "modulate:a", 0.0, 1.5)
+	tween.tween_callback(func(): get_tree().change_scene_to_file(next_scene_path))

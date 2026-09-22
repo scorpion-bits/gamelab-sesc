@@ -31,6 +31,8 @@ baseline_offset = -0.15
 
 [node name="Credits" type="CanvasLayer" unique_id=39130176]
 script = ExtResource("1_ywwvp")
+scroll_speed = 1.0
+fast_scroll_multiplier = 2.0
 
 [node name="Background" type="TextureRect" parent="." unique_id=533216923]
 texture_filter = 1
@@ -93,17 +95,17 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsContainer" unique_id=748229602]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -227.5
-offset_top = -271.0
-offset_right = 227.5
-offset_bottom = 719.0
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -138.0
+offset_right = 113.0
+offset_bottom = 745.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="Title" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1114043060]
 layout_mode = 2
@@ -128,10 +130,8 @@ text = "CRIADO POR"
 [node name="Name1" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1461210907]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_rjacy")
-text = "
-ScorpionBits
-Sesc
-"
+text = "ScorpionBits
+Sesc"
 horizontal_alignment = 1
 
 [node name="SectionHeader2" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1682752451]
@@ -139,32 +139,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("SystemFont_8vyyj")
 theme_override_font_sizes/font_size = 20
-text = "PROFESSORES"
+text = "PARTICIPANTES"
 
 [node name="Name2" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1546195756]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_rjacy")
-text = "
-Ana Laura Maekawa
+text = "Ana Laura Maekawa
 Christian Amancio
 Gabriela Pereira 
 Giovane Henrique
 Milan Baharami
 Thales Miguel Hajes
-"
-horizontal_alignment = 1
 
-[node name="SectionHeader3" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1084190807]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = SubResource("SystemFont_8vyyj")
-theme_override_font_sizes/font_size = 20
-text = "ALUNOS E COLABORADORES"
-
-[node name="Name3" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=104446623]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontVariation_rjacy")
-text = "
 Arthur Danilo Barra Basso
 Eduardo Pereira Antunes
 Gabriel Custodio
@@ -180,27 +166,8 @@ Heitor Rosales
 Felipe Vicentini
 Marcelo Rizzo
 Davi Pereira
-Well Siqueira
-Yuri Batista
-"
+Yuri Batista"
 horizontal_alignment = 1
-
-[node name="SectionHeader4" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=842855416]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = SubResource("SystemFont_8vyyj")
-theme_override_font_sizes/font_size = 20
-text = "OBRIGADO"
-
-[node name="Name4" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=592623478]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_fonts/font = SubResource("FontVariation_rjacy")
-text = " 
-Quando não se encontra o mundo que imaginamos
-Criamos  o  nosso..."
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CanvasLayer_Fader" type="CanvasLayer" parent="." unique_id=1832452346]
 
