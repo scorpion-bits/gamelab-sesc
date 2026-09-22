@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://c651d7sgc80nv"
 [autoload]
 
 EventSystem="*uid://blyck4pmwqv8w"
+CameraSystem="*uid://bcnjbkodlr8vs"
 DialogueSystem="*uid://b3kvrms6m6dt2"
 InteractionSystem="*uid://buflrslaq0luk"
 Transicionador="*uid://dun5i8wjm58br"
@@ -32,7 +33,6 @@ GameUi="*uid://c83guxtc5fmsu"
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
@@ -57,6 +57,7 @@ player=""
 room_container=""
 room=""
 boxes=""
+boss=""
 
 [input]
 
@@ -115,3 +116,4 @@ restart={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true

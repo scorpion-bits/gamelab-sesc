@@ -19,6 +19,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 func start_dialogue(dialogues : Array[DialogueData]):
 	EventSystem.dialogue_started.emit()
+	ui.show()
 	dialogue_count = -1
 	current_dialogues = dialogues
 	_next_dialogue()
@@ -30,6 +31,7 @@ func _next_dialogue():
 		dialogue_count += 1
 		ui.play_dialogue(current_dialogues[dialogue_count])
 	else:
+		ui.hide()
 		EventSystem.dialogue_finished.emit()
 	
 func _on_dialogue_started():

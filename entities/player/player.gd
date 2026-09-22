@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 				##$AnimationPlayer.play("idle_down")
 		return
 	if not can_move:
+		input_component.direction = Vector2.ZERO
 		movement_component.move(Vector2.ZERO, delta)
 		return 
 		

@@ -38,7 +38,9 @@ func _reset_tween():
 		tween.kill()
 		
 func _on_dialogue_started():
-	show()
+	#show()
+	pass
 	
 func _on_dialogue_finished():
-	hide()
+	#hide()
+	pass
