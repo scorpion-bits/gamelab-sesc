@@ -20,11 +20,14 @@ damage = 100
 [node name="Level1" parent="RoomContainer" unique_id=119610155 instance=ExtResource("2_0kuhf")]
 
 [node name="UserInterface" type="CanvasLayer" parent="." unique_id=1130781063]
+layer = 11
 
 [node name="DialogueUI" parent="UserInterface" unique_id=255422638 instance=ExtResource("3_0kuhf")]
 visible = false
+z_index = 1
 
 [node name="PlayerHealthUi" parent="UserInterface" unique_id=952815985 instance=ExtResource("4_6m7vs")]
+z_index = 1
 offset_left = -184.0
 offset_top = -222.0
 offset_right = -184.0

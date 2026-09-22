@@ -16,7 +16,7 @@ damage = 6
 knockback_force = 500.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=581906713]
-modulate = Color(1.5, 1, 1, 1)
+modulate = Color(2.2241454, 1.4870926, 1.4870926, 1)
 texture = ExtResource("2_m8r1b")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=710626053]

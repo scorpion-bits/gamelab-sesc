@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://components/health_component/health_component.tscn" id="5_nceau"]
 [ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://components/hurtbox_component/hurtbox_component.tscn" id="5_uf4o8"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dg3nu"]
+random_pitch = 1.07954
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("2_2r748")
+
 [sub_resource type="Animation" id="Animation_0uw4t"]
 length = 0.001
 tracks/0/type = "value"
@@ -35,11 +41,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dg3nu"]
-random_pitch = 1.07954
-random_volume_offset_db = 2.0
-streams_count = 1
-stream_0/stream = ExtResource("2_2r748")
 
 [sub_resource type="Animation" id="Animation_2r748"]
 resource_name = "attack_down"
