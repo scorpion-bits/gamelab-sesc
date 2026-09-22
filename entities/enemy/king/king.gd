@@ -15,6 +15,8 @@ var tween : Tween
 var ghost_interval : float = 0.05
 var ghost_duration : float = 0.3
 
+var positive_or_negative : int
+
 @export var projectile_spawn_interval: float = 0.05
 @export var projectile_spawn_duration : float = 2.0
 @export var attack_spiral_rotations : int = 3.0
@@ -24,6 +26,10 @@ var _angle : float = 0.0
 func _ready() -> void:
 	hurtbox_component.hit.connect(_on_hit)
 	health.died.connect(_on_died)
+	health.health_changed.connect(_on_health_changed)
+	
+func _on_health_changed(current_health : int, max_health : int):
+	EventSystem.king_health_changed.emit(current_health, max_health)
 
 func _physics_process(delta: float) -> void:
 	print(health.current_health)
@@ -53,11 +59,17 @@ func teleport(new_position : Vector2):
 func attack_2():
 	_set_normal()
 	animation.play("attack_down")
+	await animation.animation_finished
 	_spawn_projectiles_on_player_direction()
 
 func attack_1():
+	if randi_range(0,1):
+		positive_or_negative = 1
+	else:
+		positive_or_negative = -1
 	_set_normal()
 	animation.play("attack_down")
+	await animation.animation_finished
 	_angle = 0.0
 	_spawn_projectiles()
 	
@@ -97,7 +109,7 @@ func _spawn_projectile():
 	projectile_instance.global_position = global_position
 	projectile_instance.direction = Vector2.RIGHT.rotated(_angle)
 	
-	_angle += attack_spiral_rotations * TAU / (projectile_spawn_duration / projectile_spawn_interval)
+	_angle += attack_spiral_rotations * TAU / (projectile_spawn_duration / projectile_spawn_interval) * positive_or_negative
 	
 func _reset_tween():
 	if tween:
