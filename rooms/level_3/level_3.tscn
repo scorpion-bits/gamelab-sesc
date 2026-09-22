@@ -337,12 +337,14 @@ tile_set = SubResource("TileSet_f2f68")
 [node name="UpperPosition" type="TileMapLayer" parent="Tiles" index="3" unique_id=1537893762]
 
 [node name="Inimigos" type="Node2D" parent="." index="2" unique_id=676395480]
+y_sort_enabled = true
 position = Vector2(1064, -48)
 
 [node name="Inimigo" parent="Inimigos" index="0" unique_id=1080471709 instance=ExtResource("7_8biwx")]
 position = Vector2(-864, -56)
 
 [node name="Inimigo3" parent="Inimigos" index="1" unique_id=1375468287 instance=ExtResource("7_8biwx")]
+y_sort_enabled = true
 position = Vector2(-936, -216)
 
 [node name="Inimigo2" parent="Inimigos" index="2" unique_id=366995171 instance=ExtResource("7_8biwx")]

@@ -15,6 +15,7 @@ collision_mask = 16
 script = ExtResource("2_v42jj")
 RAPIDEZ = 200
 explosao = ExtResource("3_t0bj5")
+damage = 2
 knockback_force = 300.0
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=710626053]

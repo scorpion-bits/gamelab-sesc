@@ -183,7 +183,7 @@ metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [sub_resource type="Resource" id="Resource_o1vsk"]
 script = ExtResource("7_jt71r")
-text = "No fim, eles me obrigaram a lutar esta guerra egoísta... e eu fui fraco o bastante para obedecer."
+text = "No fim, eles me obrigaram a lutar esta guerra egoísta... e eu fui fraco o bastante para obedecer durante anos."
 duration = 1.0
 portrait = ExtResource("8_jt71r")
 metadata/_custom_type_script = "uid://cqx633eegleoo"
