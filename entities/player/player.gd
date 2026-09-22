@@ -8,6 +8,7 @@ class_name Player
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var visual_component: VisualComponent = $VisualComponent
 @export var som_dano : AudioStream
+@onready var player_sprite: Sprite2D = $PlayerSprite
 
 var is_alive : bool = true
 var can_move : bool = true
@@ -46,6 +47,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit(source):
 	health_component.take_damage(source.damage)
+	player_sprite.modulate = Color(1.8, 1.8, 1.8, 1.0)
+	create_tween().tween_property(player_sprite, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.5)
 	velocity += source.global_position.direction_to(hurtbox_component.global_position) * source.knockback_force
 	if som_dano != null:
 		AudioManager.play_sfx(som_dano)
