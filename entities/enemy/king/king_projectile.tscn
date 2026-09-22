@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bsfrd6v4vh42e"]
+
+[ext_resource type="PackedScene" uid="uid://jn1h2vbgnjdt" path="res://components/hitbox_component/hitbox_component.tscn" id="1_8576m"]
+[ext_resource type="Texture2D" uid="uid://cnurfn8n76ioa" path="res://entities/enemy/king/king_projectile.png" id="2_m8r1b"]
+[ext_resource type="Script" uid="uid://bqev3jgjacpee" path="res://entities/enemy/king/king_projectile.gd" id="2_wn736"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8576m"]
+
+[node name="KingProjectile" unique_id=734075556 instance=ExtResource("1_8576m")]
+collision_layer = 64
+collision_mask = 16
+script = ExtResource("2_wn736")
+speed = 200.0
+direction = Vector2(0, 0)
+damage = 6
+knockback_force = 700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=581906713]
+modulate = Color(1.5, 1, 1, 1)
+texture = ExtResource("2_m8r1b")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=710626053]
+shape = SubResource("CircleShape2D_8576m")
+debug_color = Color(0.9607843, 0, 0.5176471, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

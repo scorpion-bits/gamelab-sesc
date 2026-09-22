@@ -13,6 +13,9 @@ y_sort_enabled = true
 [node name="Player" parent="RoomContainer" unique_id=805189541 instance=ExtResource("2_6m7vs")]
 position = Vector2(107, -62)
 
+[node name="HitboxComponent" parent="RoomContainer/Player" index="9" unique_id=734075556]
+damage = 100
+
 [node name="BossRoom" parent="RoomContainer" unique_id=119610155 instance=ExtResource("2_0kuhf")]
 
 [node name="UserInterface" type="CanvasLayer" parent="." unique_id=1130781063]
@@ -25,3 +28,7 @@ offset_left = -184.0
 offset_top = -222.0
 offset_right = -184.0
 offset_bottom = -222.0
+
+[editable path="RoomContainer/Player"]
+[editable path="RoomContainer/Player/HurtboxComponent"]
+[editable path="RoomContainer/Player/HitboxComponent"]

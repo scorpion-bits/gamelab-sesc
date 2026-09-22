@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://5wrysthi66m8" path="res://entities/spike/spike.tscn" id="6_3ty7s"]
 [ext_resource type="PackedScene" uid="uid://c3xlg84t4o2mm" path="res://entities/enemy/primeiro inimigo/inimigo.tscn" id="7_8biwx"]
 [ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://entities/door/door.tscn" id="8_8biwx"]
+[ext_resource type="PackedScene" uid="uid://c5f48oqjlrwgo" path="res://rooms/boss_room/boss_room.tscn" id="9_hngma"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hngma"]
 texture = ExtResource("2_r6n4i")
@@ -636,5 +637,6 @@ position = Vector2(242, 459)
 
 [node name="Door" parent="." index="4" unique_id=1052326827 instance=ExtResource("8_8biwx")]
 position = Vector2(576, 345)
+room = ExtResource("9_hngma")
 
 [editable path="Inimigos/Inimigo"]
