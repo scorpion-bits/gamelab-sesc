@@ -101,7 +101,7 @@ sources/0 = SubResource("TileSetAtlasSource_yr5eq")
 [sub_resource type="Environment" id="Environment_k4pr2"]
 background_mode = 3
 glow_enabled = true
-glow_intensity = 0.38
+glow_intensity = 1.04
 glow_strength = 0.69
 glow_bloom = 0.05
 glow_blend_mode = 0
@@ -187,9 +187,6 @@ position = Vector2(0, -171)
 [node name="Sprite2D" parent="King" index="0" unique_id=414763179]
 texture = ExtResource("5_37jqs")
 hframes = 1
-
-[node name="TeleportTimer" parent="King" index="5" unique_id=926574489]
-wait_time = 3.0
 
 [node name="RoomEvent" type="Node" parent="." index="8" unique_id=32601687]
 script = ExtResource("4_k675t")

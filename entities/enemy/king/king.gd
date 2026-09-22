@@ -37,20 +37,55 @@ func teleport(new_position : Vector2):
 	_set_white()
 	tween = create_tween()
 	tween.tween_property(self, "global_position", new_position, teleport_time).set_ease(Tween.EASE_IN_OUT)
-	tween.tween_callback(attack)
+	
+	var attack_type = randi_range(1,3)
+	
+	if attack_type == 1:
+		tween.tween_callback(attack_1)
+	elif attack_type == 2:
+		tween.tween_callback(attack_2)
+	else:
+		tween.tween_callback(attack_2)
+	
+	
 	_create_ghost()
+	
+func attack_2():
+	_set_normal()
+	animation.play("attack_down")
+	_spawn_projectiles_on_player_direction()
 
-func attack():
+func attack_1():
 	_set_normal()
 	animation.play("attack_down")
 	_angle = 0.0
 	_spawn_projectiles()
+	
+func _spawn_projectiles_on_player_direction():
+	var projectile_spawner = create_tween()
+	projectile_spawner.set_loops(int(projectile_spawn_duration / projectile_spawn_interval))
+	projectile_spawner.tween_interval(projectile_spawn_interval)
+	projectile_spawner.tween_callback(_spawn_projectile_on_player_direction)
+	
+func _spawn_projectile_on_player_direction():
+	var projectile_instance = load("res://entities/enemy/king/king_projectile.tscn").instantiate()
+	get_tree().get_first_node_in_group("room").add_child(projectile_instance)
+	var projectile_tween = create_tween()
+	projectile_tween.tween_interval(2.0)
+	projectile_tween.tween_callback(projectile_instance.queue_free)
+	
+	projectile_instance.global_position = global_position
+	projectile_instance.speed = 400
+	
+	projectile_instance.direction = projectile_instance.global_position.direction_to(get_tree().get_first_node_in_group("player").hurtbox_component.global_position)
+	
 
 func _spawn_projectiles():
 	var projectile_spawner = create_tween()
 	projectile_spawner.set_loops(int(projectile_spawn_duration / projectile_spawn_interval))
 	projectile_spawner.tween_interval(projectile_spawn_interval)
 	projectile_spawner.tween_callback(_spawn_projectile)
+	
 	
 func _spawn_projectile():
 	var projectile_instance = load("res://entities/enemy/king/king_projectile.tscn").instantiate()
