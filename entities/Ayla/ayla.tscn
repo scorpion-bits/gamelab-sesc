@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bifc7kpn5axh0"]
+
+[ext_resource type="Script" uid="uid://p1xeicbko20q" path="res://entities/Ayla/ayla.gd" id="1_5fhti"]
+[ext_resource type="Texture2D" uid="uid://b2lwpn2yknst3" path="res://assets/portraits/ayla_portrait.png" id="1_moe4g"]
+[ext_resource type="Script" uid="uid://cpuldr6pv0brc" path="res://components/interaction_component/interaction_component.gd" id="2_5fhti"]
+[ext_resource type="Script" uid="uid://rj3p405knwcb" path="res://components/outline_component/outline_component.gd" id="3_fekr5"]
+[ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="4_c8fv2"]
+[ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="5_0k51k"]
+[ext_resource type="Texture2D" uid="uid://ceo3iympelyik" path="res://entities/player/player_portrait.png" id="6_6str4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4pr2"]
+radius = 65.06919
+
+[sub_resource type="Resource" id="Resource_k4pr2"]
+script = ExtResource("5_0k51k")
+text = "Cuidado!"
+duration = 1.0
+portrait = ExtResource("1_moe4g")
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[sub_resource type="Resource" id="Resource_3nqnr"]
+script = ExtResource("5_0k51k")
+text = "Alguns monstros estão impedindo a passagem, assim eu não consigo chegar até o Rei"
+duration = 1.0
+portrait = ExtResource("1_moe4g")
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[sub_resource type="Resource" id="Resource_mx6ng"]
+script = ExtResource("5_0k51k")
+text = "Aurora! Use o (Espaço) para atacar! Entregue nossa mensagem ao Rei!"
+duration = 1.0
+portrait = ExtResource("1_moe4g")
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[sub_resource type="Resource" id="Resource_5vgfi"]
+script = ExtResource("5_0k51k")
+text = "Pode contar comigo!"
+duration = 1.0
+portrait = ExtResource("6_6str4")
+metadata/_custom_type_script = "uid://cqx633eegleoo"
+
+[node name="Ayla" type="Node2D" unique_id=1758367342]
+script = ExtResource("1_5fhti")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=437603963]
+texture = ExtResource("1_moe4g")
+
+[node name="InteractionComponent" type="Area2D" parent="." unique_id=558997996 node_paths=PackedStringArray("target")]
+script = ExtResource("2_5fhti")
+target = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://cpuldr6pv0brc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" unique_id=1624086845]
+shape = SubResource("CircleShape2D_k4pr2")
+
+[node name="OutlineComponent" type="Node" parent="InteractionComponent" unique_id=2139243046 node_paths=PackedStringArray("target")]
+script = ExtResource("3_fekr5")
+target = NodePath("../../Sprite2D")
+metadata/_custom_type_script = "uid://rj3p405knwcb"
+
+[node name="DialogueComponent" type="Node" parent="." unique_id=10646410]
+script = ExtResource("4_c8fv2")
+dialogues = Array[ExtResource("5_0k51k")]([SubResource("Resource_k4pr2"), SubResource("Resource_3nqnr"), SubResource("Resource_mx6ng"), SubResource("Resource_5vgfi")])
+metadata/_custom_type_script = "uid://dcw3wkslql7lx"
+
+[connection signal="body_entered" from="InteractionComponent" to="InteractionComponent" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionComponent" to="InteractionComponent" method="_on_body_exited"]

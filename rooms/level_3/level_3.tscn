@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwx8wwk6xfar" path="res://entities/door/door.tscn" id="8_8biwx"]
 [ext_resource type="PackedScene" uid="uid://c5f48oqjlrwgo" path="res://rooms/boss_room/boss_room.tscn" id="9_hngma"]
 [ext_resource type="PackedScene" uid="uid://b2xfyal6yfbgd" path="res://entities/enemy/dummy/dummy.tscn" id="11_dr44c"]
+[ext_resource type="PackedScene" uid="uid://bifc7kpn5axh0" path="res://entities/Ayla/ayla.tscn" id="12_jnkhk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hngma"]
 texture = ExtResource("2_r6n4i")
@@ -365,6 +366,9 @@ position = Vector2(88, -216)
 
 [node name="Spike4" parent="." index="8" unique_id=826560490 instance=ExtResource("6_3ty7s")]
 position = Vector2(256, -56)
+
+[node name="Ayla" parent="." index="9" unique_id=1758367342 instance=ExtResource("12_jnkhk")]
+position = Vector2(55, 148)
 
 [editable path="Inimigos/Inimigo"]
 [editable path="Inimigos/Inimigo3"]
