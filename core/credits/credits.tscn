@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://d2lu30du7inal"]
+
+[ext_resource type="Texture2D" uid="uid://8jkuvico3wvr" path="res://core/main_menu/capa.png" id="1_vqfe7"]
+[ext_resource type="Script" uid="uid://f0v7xq18sloe" path="res://core/credits/credits.gd" id="1_ywwvp"]
+[ext_resource type="Texture2D" uid="uid://dcum7n2aehsg3" path="res://assets/shaders/Sprite-0002.png" id="3_n1yjs"]
+[ext_resource type="FontFile" uid="uid://0213m4228f4s" path="res://assets/fonts/deutsch_gothic/Deutsch.ttf" id="4_n1yjs"]
+[ext_resource type="AudioStream" uid="uid://b466o2emowphk" path="res://assets/audio/bgm/credits.mp3" id="5_3cung"]
+
+[sub_resource type="Gradient" id="Gradient_3cung"]
+offsets = PackedFloat32Array(0, 0.5122549, 1)
+colors = PackedColorArray(0.46, 0.42933336, 0, 0, 0.4509804, 0.4509804, 0.4509804, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_f0fvt"]
+offsets = PackedFloat32Array(0.009708738, 0.6796116, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3cung"]
+gradient = SubResource("Gradient_f0fvt")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_8vyyj"]
+
+[sub_resource type="FontVariation" id="FontVariation_rjacy"]
+variation_embolden = 0.12
+variation_transform = Transform2D(0.69, -0.1, -0.02, 0.875, 0, 0)
+spacing_glyph = 1
+spacing_top = -2
+baseline_offset = -0.15
+
+[node name="Credits" type="Control" unique_id=1263848527]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ywwvp")
+
+[node name="Background" type="TextureRect" parent="." unique_id=533216923]
+texture_filter = 1
+layout_mode = 0
+offset_top = -7.0
+offset_right = 1069.6309
+offset_bottom = 621.8889
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_vqfe7")
+
+[node name="Shader" type="ShaderGlobalsOverride" parent="Background" unique_id=58398994]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1958845168]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -13.0
+offset_right = 487.0
+offset_bottom = 272.0
+color = Color(0, 0, 0, 0.7607843)
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1405223317]
+position = Vector2(108, 203)
+amount = 50
+texture = ExtResource("3_n1yjs")
+lifetime = 8.0
+preprocess = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(270, 180)
+gravity = Vector2(5, -10)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+color = Color(7.75863, 7.75863, 7.75863, 1)
+color_ramp = SubResource("Gradient_3cung")
+
+[node name="vignette" type="TextureRect" parent="." unique_id=1077084371]
+modulate = Color(1, 1, 1, 0.56078434)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+offset_right = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_3cung")
+
+[node name="CreditsContainer" type="Control" parent="." unique_id=1714964746]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = 137.0
+offset_right = 243.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsContainer" unique_id=748229602]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -138.0
+offset_right = 113.0
+offset_bottom = 745.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1114043060]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_n1yjs")
+theme_override_font_sizes/font_size = 35
+text = "Tirania"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer1" type="Control" parent="CreditsContainer/VBoxContainer" unique_id=659348115]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SectionHeader1" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1841101063]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_8vyyj")
+theme_override_font_sizes/font_size = 20
+text = "CRIADO POR"
+
+[node name="Name1" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1461210907]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_rjacy")
+text = "ScorpionBits
+Sesc"
+horizontal_alignment = 1
+
+[node name="SectionHeader2" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1682752451]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_8vyyj")
+theme_override_font_sizes/font_size = 20
+text = "PARTICIPANTES"
+
+[node name="Name2" type="Label" parent="CreditsContainer/VBoxContainer" unique_id=1546195756]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_rjacy")
+text = "Ana Laura Maekawa
+Christian Amancio
+Gabriela Pereira 
+Giovane Henrique
+Milan Baharami
+Thales Miguel Hajes
+
+Arthur Danilo Barra Basso
+Eduardo Pereira Antunes
+Gabriel Custodio
+Gabriel Pastre
+João Victor Cruz Dos Santos
+Lara Lupattelli Valerio Alves
+Mariana Fernandes Ribeiro
+Matheus Mukoyama Bozeja
+Pietro Kaynan Carvalho Lopes da Silva
+Bento Cantelli
+Sophia Pereira
+Heitor Rosales
+Felipe Vicentini
+Marcelo Rizzo
+Davi Pereira
+Yuri Batista"
+horizontal_alignment = 1
+
+[node name="CanvasLayer_Fader" type="CanvasLayer" parent="." unique_id=1832452346]
+
+[node name="credits" type="AudioStreamPlayer2D" parent="." unique_id=2126868016]
+stream = ExtResource("5_3cung")
+autoplay = true
