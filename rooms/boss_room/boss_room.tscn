@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://n13milrm348e" path="res://assets/tiles/autorais/dungeon.png" id="2_wcc8s"]
 [ext_resource type="PackedScene" uid="uid://ds6mat4bdgj6t" path="res://entities/torch/torch.tscn" id="3_yr5eq"]
 [ext_resource type="Script" uid="uid://eg3nsulmdloh" path="res://rooms/boss_room/room_event.gd" id="4_k675t"]
-[ext_resource type="Texture2D" uid="uid://byqkf61incf5t" path="res://entities/enemy/king/king_hand.png" id="5_37jqs"]
 [ext_resource type="PackedScene" uid="uid://1a4egkoqv7qp" path="res://entities/enemy/king/king.tscn" id="5_eqk62"]
 [ext_resource type="AudioStream" uid="uid://dlm356txrwry2" path="res://assets/audio/bgm/battle 1.mp3" id="6_ti20a"]
 [ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="6_u3x5j"]
@@ -60,7 +59,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_mx6ng"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 256
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_wcc8s")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yr5eq"]
@@ -250,9 +250,6 @@ debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="King" parent="." index="7" unique_id=224371529 instance=ExtResource("5_eqk62")]
 position = Vector2(0, -171)
-
-[node name="Sprite2D" parent="King" index="0" unique_id=414763179]
-texture = ExtResource("5_37jqs")
 
 [node name="RoomEvent" type="Node" parent="." index="8" unique_id=32601687]
 script = ExtResource("4_k675t")

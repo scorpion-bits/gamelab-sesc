@@ -14,6 +14,9 @@ y_sort_enabled = true
 [node name="Player" parent="RoomContainer" unique_id=805189541 instance=ExtResource("2_6m7vs")]
 position = Vector2(107, -62)
 
+[node name="HealthComponent" parent="RoomContainer/Player" index="8" unique_id=454567807]
+current_health = 400
+
 [node name="HitboxComponent" parent="RoomContainer/Player" index="9" unique_id=734075556]
 knockback_force = 7.0
 

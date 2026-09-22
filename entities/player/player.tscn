@@ -580,6 +580,7 @@ stream_0/stream = ExtResource("4_wvtmh")
 
 [node name="Player" type="CharacterBody2D" unique_id=805189541 groups=["player"]]
 y_sort_enabled = true
+collision_mask = 257
 motion_mode = 1
 script = ExtResource("1_qlg0r")
 som_dano = SubResource("AudioStreamRandomizer_a1qjk")
