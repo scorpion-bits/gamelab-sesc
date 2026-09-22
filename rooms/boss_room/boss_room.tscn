@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://1a4egkoqv7qp" path="res://entities/enemy/king/king.tscn" id="5_eqk62"]
 [ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="6_u3x5j"]
 [ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="7_jt71r"]
+[ext_resource type="Texture2D" uid="uid://dqw58e515p6by" path="res://entities/enemy/king/king_portrait_rage.png" id="8_bfv4j"]
+[ext_resource type="Texture2D" uid="uid://etxw6iuh0ieb" path="res://entities/enemy/king/king_portrait.png" id="8_jt71r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcc8s"]
 texture = ExtResource("2_wcc8s")
@@ -79,6 +81,7 @@ sources/0 = SubResource("TileSetAtlasSource_yr5eq")
 background_mode = 3
 glow_enabled = true
 glow_intensity = 0.7
+glow_strength = 0.69
 glow_bloom = 0.1
 glow_blend_mode = 0
 glow_hdr_scale = 0.0
@@ -91,24 +94,28 @@ size = Vector2(746, 442)
 script = ExtResource("7_jt71r")
 text = "[shake rate=20 level=5][b]MORRER![/b][/shake]"
 duration = 2.0
+portrait = ExtResource("8_bfv4j")
 metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [sub_resource type="Resource" id="Resource_k4pr2"]
 script = ExtResource("7_jt71r")
 text = "..."
 duration = 0.5
+portrait = ExtResource("8_jt71r")
 metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [sub_resource type="Resource" id="Resource_ti20a"]
 script = ExtResource("7_jt71r")
 text = "[shake rate=20 level=5]Aurora...[/shake]"
 duration = 1.5
+portrait = ExtResource("8_jt71r")
 metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [sub_resource type="Resource" id="Resource_bfv4j"]
 script = ExtResource("7_jt71r")
 text = "[shake rate=20 level=5]Prepare-se para..[/shake]"
 duration = 1.0
+portrait = ExtResource("8_jt71r")
 metadata/_custom_type_script = "uid://cqx633eegleoo"
 
 [node name="BossRoom" unique_id=119610155 instance=ExtResource("1_cl1dg")]
@@ -147,7 +154,7 @@ shape = SubResource("RectangleShape2D_k4pr2")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="King" parent="." index="7" unique_id=224371529 instance=ExtResource("5_eqk62")]
-position = Vector2(0, -170)
+position = Vector2(0, -171)
 
 [node name="RoomEvent" type="Node" parent="." index="8" unique_id=32601687]
 script = ExtResource("4_k675t")
