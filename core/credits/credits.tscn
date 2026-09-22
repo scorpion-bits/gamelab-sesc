@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2lu30du7inal"]
 
-[ext_resource type="Texture2D" uid="uid://8jkuvico3wvr" path="res://core/main_menu/capa.png" id="1_vqfe7"]
 [ext_resource type="Script" uid="uid://f0v7xq18sloe" path="res://core/credits/credits.gd" id="1_ywwvp"]
+[ext_resource type="Texture2D" uid="uid://bhbpjyogqiqux" path="res://assets/uis/capa true.jpeg" id="2_3cung"]
 [ext_resource type="Texture2D" uid="uid://dcum7n2aehsg3" path="res://assets/shaders/Sprite-0002.png" id="3_n1yjs"]
 [ext_resource type="FontFile" uid="uid://0213m4228f4s" path="res://assets/fonts/deutsch_gothic/Deutsch.ttf" id="4_n1yjs"]
 [ext_resource type="AudioStream" uid="uid://b466o2emowphk" path="res://assets/audio/bgm/credits.mp3" id="5_3cung"]
@@ -38,7 +38,7 @@ offset_top = -7.0
 offset_right = 1069.6309
 offset_bottom = 621.8889
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_vqfe7")
+texture = ExtResource("2_3cung")
 
 [node name="Shader" type="ShaderGlobalsOverride" parent="Background" unique_id=58398994]
 

@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cpe8n3i1r2sxb" path="res://rooms/boss_room/distortion.tscn" id="13_v3wyh"]
 [ext_resource type="Texture2D" uid="uid://b0es2jed4w4ij" path="res://entities/musaranho/musaranho_portrait.png" id="13_xdwry"]
 [ext_resource type="PackedScene" uid="uid://ccjhm2tmr4jt7" path="res://entities/box/box_target.tscn" id="15_xgnd0"]
+[ext_resource type="PackedScene" uid="uid://dn77xpawnkgtv" path="res://entities/tree/tree.tscn" id="19_bsely"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piyaa"]
 texture = ExtResource("2_6dwt3")
@@ -790,6 +791,7 @@ tile_map_data = PackedByteArray("AAADAP//AAAGAAEAAAADAAAAAAAGAAIAAAAEAP//AAAHAAE
 tile_set = SubResource("TileSet_a025n")
 
 [node name="Details" type="TileMapLayer" parent="Tiles" index="2" unique_id=1729625848]
+visible = false
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAKAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAANAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_1nvn7")
@@ -811,6 +813,15 @@ dialogues = Array[ExtResource("8_t6lab")]([SubResource("Resource_uq1c4"), SubRes
 
 [node name="ComponenteInteracao" parent="Byon" index="1" unique_id=454065674 node_paths=PackedStringArray("target")]
 target = NodePath("../Sprite2D")
+
+[node name="StaticBody2D" parent="." index="4" unique_id=1820245430 instance=ExtResource("19_bsely")]
+position = Vector2(179, 38)
+
+[node name="StaticBody2D2" parent="." index="5" unique_id=794934515 instance=ExtResource("19_bsely")]
+position = Vector2(340, 37)
+
+[node name="StaticBody2D3" parent="." index="6" unique_id=397316861 instance=ExtResource("19_bsely")]
+position = Vector2(438, 192)
 
 [editable path="Byon"]
 [editable path="Byon/ComponenteInteracao"]

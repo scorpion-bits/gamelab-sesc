@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://c52b8psn0v324" path="res://entities/projectile/mage_projectile/bala.tscn" id="2_xqf6n"]
 [ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://components/hurtbox_component/hurtbox_component.tscn" id="3_xqf6n"]
 [ext_resource type="Script" uid="uid://bj2rp3um44g6m" path="res://entities/enemy/primeiro inimigo/bracos.gd" id="4_5exet"]
+[ext_resource type="AudioStream" uid="uid://bmiklybiqucrv" path="res://assets/audio/sfx/hitenemy.wav" id="4_xqf6n"]
 [ext_resource type="Texture2D" uid="uid://bumq88llvlwxe" path="res://entities/enemy/primeiro inimigo/hands.png" id="5_yjtbm"]
 [ext_resource type="PackedScene" uid="uid://bi524p780xdp8" path="res://components/health_component/health_component.tscn" id="6_rhp3c"]
+[ext_resource type="AudioStream" uid="uid://c5gqng1td6yfa" path="res://assets/audio/sfx/laser.mp3" id="8_5exet"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4pr2"]
 radius = 4.0
@@ -144,6 +146,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(4.381206, 0, 0, 1), Color(1, 1, 1, 1)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hits")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_xqf6n")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4v6kx"]
 _data = {
@@ -238,6 +255,21 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.7, 1.2), Vector2(1, 1)]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../hits")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.04075222,
+"stream": ExtResource("8_5exet")
+}],
+"times": PackedFloat32Array(0.01666667)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0dgd2"]
 _data = {
@@ -300,6 +332,8 @@ autostart = true
 [node name="HealthComponent" parent="." unique_id=454567807 instance=ExtResource("6_rhp3c")]
 current_health = 10
 max_health = 10
+
+[node name="hits" type="AudioStreamPlayer2D" parent="." unique_id=1030299591]
 
 [connection signal="body_entered" from="Deteccao" to="Bracos" method="_on_deteccao_body_entered"]
 [connection signal="body_exited" from="Deteccao" to="Bracos" method="_on_deteccao_body_exited"]

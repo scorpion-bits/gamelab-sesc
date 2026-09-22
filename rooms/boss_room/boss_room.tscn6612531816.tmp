@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://dlm356txrwry2" path="res://assets/audio/bgm/battle 1.mp3" id="6_ti20a"]
 [ext_resource type="Script" uid="uid://dcw3wkslql7lx" path="res://components/dialogue_component/dialogue_component.gd" id="6_u3x5j"]
 [ext_resource type="Script" uid="uid://cqx633eegleoo" path="res://systems/dialogue_system/dialogue_data.gd" id="7_jt71r"]
-[ext_resource type="PackedScene" uid="uid://c7ui0nw4v1ice" path="res://core/lore/Lore.tscn" id="7_ojelp"]
 [ext_resource type="Texture2D" uid="uid://dqw58e515p6by" path="res://entities/enemy/king/king_portrait_rage.png" id="8_bfv4j"]
 [ext_resource type="AudioStream" uid="uid://dl8x5p1qnvg48" path="res://assets/audio/bgm/finalking.mp3" id="8_jkljd"]
 [ext_resource type="Texture2D" uid="uid://etxw6iuh0ieb" path="res://entities/enemy/king/king_portrait.png" id="8_jt71r"]
@@ -262,7 +261,6 @@ texture = ExtResource("5_37jqs")
 
 [node name="RoomEvent" type="Node" parent="." index="8" unique_id=32601687]
 script = ExtResource("4_k675t")
-room = ExtResource("7_ojelp")
 musica_do_boss = ExtResource("6_ti20a")
 musica_final = ExtResource("8_jkljd")
 

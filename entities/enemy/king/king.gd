@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var teleport_timer: Timer = $TeleportTimer
 @onready var dialogue_3: Node = $"../Dialogue3"
 @onready var cl: CanvasLayer = $"../CanvasLayer"
+@onready var componente_interacao: InteractionComponent = $"../ComponenteInteracao"
 
 @export var teleport_time : float = 0.3
 

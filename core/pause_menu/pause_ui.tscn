@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjeroimsd6kri"]
 
-[ext_resource type="Script" uid="uid://elnvks2uoxwv" path="res://canvas_layer.gd" id="1_hhfee"]
+[ext_resource type="Script" uid="uid://elnvks2uoxwv" path="res://core/pause_menu/canvas_layer.gd" id="1_hhfee"]
 [ext_resource type="FontFile" uid="uid://0213m4228f4s" path="res://assets/fonts/deutsch_gothic/Deutsch.ttf" id="2_s0q6m"]
 
 [node name="PauseUi" type="CanvasLayer" unique_id=611339952]
