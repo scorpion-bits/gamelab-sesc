@@ -7,7 +7,7 @@ class_name Player
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var visual_component: VisualComponent = $VisualComponent
-
+@export var som_dano : AudioStream
 
 var is_alive : bool = true
 var can_move : bool = true
@@ -47,6 +47,9 @@ func _physics_process(delta: float) -> void:
 func _on_hit(source):
 	health_component.take_damage(source.damage)
 	velocity += source.global_position.direction_to(hurtbox_component.global_position) * source.knockback_force
+	if som_dano != null:
+		AudioManager.play_sfx(som_dano)
+
 
 func _on_health_change(current : int, max : int):
 	EventSystem.player_health_change.emit(current, max)

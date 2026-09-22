@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://l61jj4n6aebq"
+path="res://.godot/imported/hurtfamale 2.mp3-7d812480b1d0a3953daad8d7a5af3ef9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/hurtfamale 2.mp3"
+dest_files=["res://.godot/imported/hurtfamale 2.mp3-7d812480b1d0a3953daad8d7a5af3ef9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

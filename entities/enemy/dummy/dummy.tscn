@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://b2xfyal6yfbgd"]
+
+[ext_resource type="Script" uid="uid://dbe6q6rsyvcl5" path="res://entities/enemy/dummy/dummy.gd" id="1_u3hbr"]
+[ext_resource type="Texture2D" uid="uid://lkdf1j60xtnf" path="res://entities/enemy/dummy/Dummy-hit.png" id="2_1fmn2"]
+[ext_resource type="Texture2D" uid="uid://b1d4k5mh06d3l" path="res://entities/enemy/dummy/Impact Vfx.png" id="3_5tctx"]
+[ext_resource type="AudioStream" uid="uid://hxikniim3tre" path="res://assets/audio/sfx/wood hit.mp3" id="4_1fmn2"]
+[ext_resource type="PackedScene" uid="uid://cof0nim8ituow" path="res://components/hurtbox_component/hurtbox_component.tscn" id="4_ufn13"]
+
+[sub_resource type="Animation" id="Animation_wpei0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dummy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kjnnf"]
+resource_name = "hit"
+length = 0.3020588
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dummy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("hit2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.06829991,
+"start_offset": 0.093082935,
+"stream": ExtResource("4_1fmn2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_bmm63"]
+resource_name = "idle"
+step = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmm63"]
+_data = {
+&"RESET": SubResource("Animation_wpei0"),
+&"hit": SubResource("Animation_kjnnf"),
+&"idle": SubResource("Animation_bmm63")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_084h5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nfiw7"]
+radius = 3.9999998
+height = 17.999998
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1973398867]
+y_sort_enabled = true
+script = ExtResource("1_u3hbr")
+
+[node name="dummy" type="Sprite2D" parent="." unique_id=1660013714]
+position = Vector2(0, -16)
+texture = ExtResource("2_1fmn2")
+hframes = 4
+frame = 3
+
+[node name="hit" type="Sprite2D" parent="." unique_id=272557707]
+visible = false
+position = Vector2(-2, -20)
+texture = ExtResource("3_5tctx")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1781605219]
+libraries/ = SubResource("AnimationLibrary_bmm63")
+
+[node name="HurtboxComponent" parent="." unique_id=26651227 instance=ExtResource("4_ufn13")]
+position = Vector2(-2, -20)
+collision_layer = 128
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=233471483]
+position = Vector2(2, 4)
+shape = SubResource("CapsuleShape2D_084h5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=6141219]
+position = Vector2(0, -3)
+rotation = -1.5704505
+shape = SubResource("CapsuleShape2D_nfiw7")
+
+[node name="hit2" type="AudioStreamPlayer2D" parent="." unique_id=1529565816]
+bus = &"SFX"
+
+[connection signal="hit" from="HurtboxComponent" to="." method="_on_hurtbox_component_hit"]
+
+[editable path="HurtboxComponent"]
