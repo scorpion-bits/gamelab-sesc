@@ -15,33 +15,6 @@ random_volume_offset_db = 2.0
 streams_count = 1
 stream_0/stream = ExtResource("2_2r748")
 
-[sub_resource type="Animation" id="Animation_0uw4t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="Animation" id="Animation_2r748"]
 resource_name = "attack_down"
 step = 0.16666667
@@ -221,7 +194,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mp3gl"]
 _data = {
-&"RESET": SubResource("Animation_0uw4t"),
 &"attack_down": SubResource("Animation_2r748"),
 &"damage_taken": SubResource("Animation_nceau"),
 &"defeated": SubResource("Animation_dg3nu"),
