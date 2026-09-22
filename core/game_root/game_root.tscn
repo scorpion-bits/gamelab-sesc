@@ -4,6 +4,30 @@
 [ext_resource type="PackedScene" uid="uid://xsymq41wpo55" path="res://entities/player/player.tscn" id="2_6m7vs"]
 [ext_resource type="PackedScene" uid="uid://cgg2a2k00vmvr" path="res://user_interface/dialogue_ui/dialogue_ui.tscn" id="3_0kuhf"]
 [ext_resource type="PackedScene" uid="uid://cg4pp4je64wwj" path="res://user_interface/player_health_ui/player_health_ui.tscn" id="4_6m7vs"]
+[ext_resource type="Shader" uid="uid://cd4xvyay3kgpb" path="res://shaders/fog.gdshader" id="5_0kuhf"]
+[ext_resource type="Shader" uid="uid://c4riim1t8l0h6" path="res://shaders/shockwave.gdshader" id="6_s1m4o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4pr2"]
+shader = ExtResource("6_s1m4o")
+shader_parameter/strength = 0.0210000009975
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.53600002546
+shader_parameter/aberration = 0.425
+shader_parameter/width = 0.04
+shader_parameter/feather = 0.72800003458
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6m7vs"]
+shader = ExtResource("5_0kuhf")
+shader_parameter/speed = 0.5
+shader_parameter/pixelation = 8.0
+shader_parameter/zoom = 2.0
+shader_parameter/gradient_pixelation = 0.035000001662499995
+shader_parameter/background_threshold = 0.0
+shader_parameter/color_low_threshold = 0.2290000108775
+shader_parameter/color_mid_threshold = 0.48
+shader_parameter/color_low = Color(0.31799886, 0.31799886, 0.31799886, 0.101960786)
+shader_parameter/color_mid = Color(0.12156863, 0.019607844, 0.11372549, 0.16470589)
+shader_parameter/color_high = Color(0.26468948, 0.26468948, 0.26468948, 0.09019608)
 
 [node name="GameRoot" type="Node2D" unique_id=1074952045]
 
@@ -15,12 +39,36 @@ position = Vector2(107, -62)
 
 [node name="BossRoom" parent="RoomContainer" unique_id=119610155 instance=ExtResource("2_0kuhf")]
 
+[node name="Distortion" type="CanvasLayer" parent="RoomContainer/BossRoom" unique_id=1157236219]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="RoomContainer/BossRoom/Distortion" unique_id=1408958320]
+material = SubResource("ShaderMaterial_k4pr2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fog" type="ColorRect" parent="RoomContainer/BossRoom/Distortion" unique_id=212154466]
+z_index = -1
+material = SubResource("ShaderMaterial_6m7vs")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+
 [node name="UserInterface" type="CanvasLayer" parent="." unique_id=1130781063]
+layer = 11
 
 [node name="DialogueUI" parent="UserInterface" unique_id=255422638 instance=ExtResource("3_0kuhf")]
 visible = false
+z_index = 1
 
 [node name="PlayerHealthUi" parent="UserInterface" unique_id=952815985 instance=ExtResource("4_6m7vs")]
+z_index = 1
 offset_left = -184.0
 offset_top = -222.0
 offset_right = -184.0
