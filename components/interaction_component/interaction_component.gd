@@ -4,7 +4,7 @@ class_name InteractionComponent
 @onready var outline_component: OutlineComponent = $OutlineComponent
 @export var target : Node2D
 
-var interacao : Callable
+var interaction : Callable
 var in_range : bool
 var is_closest : bool
 var animation_up : bool

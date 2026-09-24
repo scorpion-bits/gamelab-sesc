@@ -47,10 +47,10 @@ texture = ExtResource("1_2hfgt")
 hframes = 9
 vframes = 4
 
-[node name="ComponenteInteracao" parent="." unique_id=454065674 node_paths=PackedStringArray("target") instance=ExtResource("2_oih2t")]
+[node name="InteractionComponent" parent="." unique_id=454065674 node_paths=PackedStringArray("target") instance=ExtResource("2_oih2t")]
 target = NodePath("../Sprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteInteracao" unique_id=216575056]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" unique_id=216575056]
 shape = SubResource("CircleShape2D_m75hn")
 
 [node name="DialogoPrincipal" type="Node" parent="." unique_id=1103493141]
@@ -62,4 +62,4 @@ metadata/_custom_type_script = "uid://dcw3wkslql7lx"
 script = ExtResource("4_aojdi")
 dialogues = Array[ExtResource("5_b681t")]([SubResource("Resource_nfiw7")])
 
-[editable path="ComponenteInteracao"]
+[editable path="InteractionComponent"]

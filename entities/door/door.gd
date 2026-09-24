@@ -2,12 +2,12 @@ extends StaticBody2D
 
 @export var room : PackedScene
 @export var is_locked : bool = false
-@onready var componente_interacao: Area2D = $ComponenteInteracao
+@onready var interaction_component: Area2D = $InteractionComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var dialogue: DialogueComponent = $LockedDialogue
 
 func _ready():
-	componente_interacao.interacao = acao_da_porta
+	interaction_component.interaction = acao_da_porta
 
 func acao_da_porta():
 	if is_locked:

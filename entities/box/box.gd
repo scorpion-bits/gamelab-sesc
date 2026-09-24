@@ -20,7 +20,7 @@ var tween : Tween
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	original_global_position = global_position
-	ic.interacao = push
+	ic.interaction = push
 
 func push():
 	if player in area_top.get_overlapping_bodies():

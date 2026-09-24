@@ -128,10 +128,10 @@ rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_m75hn")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
-[node name="ComponenteInteracao" parent="." unique_id=454065674 node_paths=PackedStringArray("target") instance=ExtResource("3_uq1c4")]
+[node name="InteractionComponent" parent="." unique_id=454065674 node_paths=PackedStringArray("target") instance=ExtResource("3_uq1c4")]
 target = NodePath("../Sprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ComponenteInteracao" unique_id=636598173]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent" unique_id=636598173]
 shape = SubResource("CircleShape2D_3xlb3")
 debug_color = Color(0, 0.60959697, 0.6541587, 0)
 
@@ -143,7 +143,7 @@ metadata/_custom_type_script = "uid://dcw3wkslql7lx"
 [node name="door" type="AudioStreamPlayer2D" parent="." unique_id=282700401]
 bus = &"SFX"
 
-[connection signal="body_entered" from="ComponenteInteracao" to="." method="_on_componente_interacao_body_entered"]
-[connection signal="body_exited" from="ComponenteInteracao" to="." method="_on_componente_interacao_body_exited"]
+[connection signal="body_entered" from="InteractionComponent" to="." method="_on_componente_interacao_body_entered"]
+[connection signal="body_exited" from="InteractionComponent" to="." method="_on_componente_interacao_body_exited"]
 
-[editable path="ComponenteInteracao"]
+[editable path="InteractionComponent"]

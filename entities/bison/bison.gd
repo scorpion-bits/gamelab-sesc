@@ -1,8 +1,8 @@
 extends Node2D
-@onready var componente_interacao: InteractionComponent = $ComponenteInteracao
+@onready var interaction_component: InteractionComponent = $ComponenteInteracao
 @onready var dialogue_component: DialogueComponent = $DialogueComponent
 
 
 
 func _ready() -> void:
-	componente_interacao.interacao = dialogue_component.start_dialogue
+	interaction_component.interaction = dialogue_component.start_dialogue

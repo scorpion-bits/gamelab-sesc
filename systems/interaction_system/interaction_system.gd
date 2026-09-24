@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interagir") and area_list.size() > 0:
-		area_list[0].interacao.call()
+		area_list[0].interaction.call()
 		get_viewport().set_input_as_handled()
 
 func register_area(nova_area : InteractionComponent):
