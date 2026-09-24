@@ -15,7 +15,7 @@ var timer_out : bool = false
 
 func _ready() -> void:
 	trono.monitoring = false
-	trono.interacao = call_lore
+	trono.interaction = call_lore
 	get_tree().get_first_node_in_group("player").health_component.current_health = 20
 
 

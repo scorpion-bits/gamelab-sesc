@@ -5,4 +5,4 @@ extends Node2D
 
 
 func _ready() -> void:
-	interaction_component.interacao = dialogue_component.start_dialogue
+	interaction_component.interaction = dialogue_component.start_dialogue
