@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name Player
+@onready var dust_particles: CPUParticles2D = $DustParticles
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var movement_component: MovementComponent = $MovementComponent
@@ -44,6 +45,11 @@ func _physics_process(delta: float) -> void:
 		movement_component.move(visual_component.last_direction * 0.4, delta)
 	else:
 		movement_component.move(input_component.get_direction(), delta)
+		
+	if velocity.length() >= 100:
+		dust_particles.emitting = true
+	else:
+		dust_particles.emitting = false
 
 func _on_hit(source):
 	health_component.take_damage(source.damage)
