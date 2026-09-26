@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 			var sala_atual = get_tree().get_first_node_in_group("room")
 			Transicionador.change_room(load(sala_atual.scene_file_path))
 			
+			await Transicionador.screen_hidden
 			is_alive = true
 			visual_component.morto = false
 			health_component.current_health = health_component.max_health
